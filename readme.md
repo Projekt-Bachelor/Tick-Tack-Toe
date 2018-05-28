@@ -14,7 +14,7 @@ Webaplikation, die ein Tic Tac Toe Spiel anbietet. Hierbei soll im weiteren Verl
 
 ### Strategie 
 
-Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrscheinlichkeit, dass der erste Spieler gewinnt um ca 60% höher, als der zweite.
+Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrscheinlichkeit, dass der erste Spieler gewinnt um ca 60% höher, als der zweite. Daher soll der Algorithmus minimax verwendet werden.
 
 ### Verwendete Tools
 
