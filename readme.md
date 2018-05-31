@@ -1,14 +1,4 @@
 # Bachelorproject 2018 - Tic-Tack-Toe
-## Projektaufbau  
-&rarr; Spring-Boot-cli in @Controller  
-&rarr; REST Test (Abfrage der Daten des Controllers)  
-&rarr; View (HTML, Game-Engine)  
-&rarr; Logik
-
--  Welt  
-	- unabhängig vom View  
-	- Sparse Objekt Matrix (PanelColt)
-	- Ennum/Kartendeck 
 
 ### Grobe Idee 
 
@@ -24,7 +14,7 @@ Webaplikation, die ein Tic Tac Toe Spiel anbietet. Hierbei soll im weiteren Verl
 
 ### Strategie 
 
-Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrscheinlichkeit, dass der erste Spieler gewinnt um ca 60% höher, als der zweite.
+Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrscheinlichkeit, dass der erste Spieler gewinnt um ca 60% höher, als der zweite. Daher soll der Algorithmus minimax verwendet werden.
 
 ### Verwendete Tools
 
@@ -56,5 +46,16 @@ Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrsc
 1. eine Person ist für Heroku Deployment zuständig
 
 ## Notizen
+## Projektaufbau  
+
+&rarr; REST Test (Abfrage der Daten des Controllers)  
+&rarr; View (HTML, Game-Engine)  
+&rarr; Logik
+
+-  Welt  
+	- unabhängig vom View  
+	- Sparse Objekt Matrix (PanelColt)
+	- Ennum/Kartendeck 
+
 - bot via D3 Chart,js am 7.06.2018 *Vortrag!* ?
 
