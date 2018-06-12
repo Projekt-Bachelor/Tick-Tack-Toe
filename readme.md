@@ -21,6 +21,7 @@ Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrsc
 * Framework: Spring-Boot 
 * Sprache: Java 8
 * Graphische Oberfläche:HTML, CSS, Java Template Engine
+* Fonst für X & O: https://fontawesome.com/icons?d=gallery
 * Build Tool: ?
 
 
