@@ -1,13 +1,65 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link href="Reset-Layout.css" rel="stylesheet">
+    <link href="WebApp-Layout.css" rel="stylesheet">
+    <link href="WebApp-Layout.scss rel=stylesheet">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Bachelor-Projekt 2018 - Tick-Tack-Toe</title>  
 </head>
 
-<body>
-    <h1>Bachelor-Projekt 2018 - Tick-Tack-Toe</h1>
+
+
+
+<h1>Bachelor-Projekt 2018</h1>
+<h2>Tick-Tack-Toe</h2>
+
+
+<ul class="flex-container">
+
+
+
+    <li class="flex-item">
+
+    <table class="l-block">
+        <tr>
+
+            <!-- https://fontawesome.com/icons?d=gallery -->
+            <td><img src="Kreis.svg"></td>
+            <td><img src="Kreis.svg"></td>
+            <td><img src="Kreis.svg"></td>
+        </tr>
+        <tr>
+            <td><img src="Kreis.svg"></td>
+            <td><img src="Kreis.svg"></td>
+            <td><img src="Kreis.svg"></td>
+        </tr>
+        <tr>
+            <td><img src="Kreis.svg"></td>
+            <td><img src="Kreis.svg"></td>
+            <td><img src="Kreis.svg"></td>
+        </tr>
+    </table>
+    </li>
+    <li class="flex-item">
+    <button class="button d-block mr-0 ml-auto box">Neues Spiel </button>
+    <button class="button d-block mr-0 ml-auto mr-top box">Einfach</button>
+    <button class="button d-block mr-0 ml-auto box">Schwer</button>
+
+    <form class="f-block mr-0 ml-auto">
+        <input type="radio" name="identifier" value="X" checked> Kreuz
+        <input type="radio"  name="identifier" value="O" > Kreis
+    </form>
+
+    <input type="submit" class ="button d-block mr-0 ml-auto" value="Submit">
+
+ </li>
+
+</ul>
+
+
 </body>
 </html>

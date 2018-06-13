@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+h1 { color: #0086b3; font-family: 'Raleway',sans-serif; font-size: 62px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase; }
+
+h2 { color: #0086b3; font-family: 'Raleway',sans-serif; font-size: 55px; font-weight: 800; line-height: 36px; margin: 0 0 24px; text-align: center; }
+
+div { color: #f8f8f8; font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 24px; }
+
+
+body {
+    /*background-color: #3e94ec;*/
+    background-color:lightgrey;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin:2em;
+    padding: 1em;
+    text-rendering: optimizeLegibility;
+}
+
+f {
+
+    font-weight:300;
+    font-size:18px;
+    text-shadow: -1px -1px 1px rgba(1, 1, 1, 1);
+
+}
+
+
+.box {
+    margin:1em;
+    padding: 1em;
+    background-color: rgba(200,200,200,0.3);
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+border {
+    border: 2px blue dashed;
+}
+
+.mr-0 {
+    margin-right: 0 !important;
+
+}
+
+.mr-top {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+.ml-auto {
+    margin-left:auto !important;
+}
+.d-block {
+    display:block !important;
+}
+.f-block {
+    /* display: inline-block !important; */
+    text-align: right !important;
+    /* position: absolute; */
+    right: 15px;
+    margin-bottom: 5px;
+}
+.l-block {
+    /*font-size: 150px;
+    font-weight: 400;
+    text-align:left !important;
+    position: absolute;
+    left: 15px;*/
+    width:50vh;
+    background-color: lightgrey;
+    border-size: 1px;
+    border-style: solid;
+    border-color: #888888;
+}
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.flex-item {
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+/*    margin-top: 10px;
+    line-height: 150px;*/
+    color: white;
+    text-align: center;
+}
+
+
+
+.button {
+    /*background-color: #00008b;*/
+    background-color: #0086b3;
+    /*position:absolute;
+    right:0;*/
+    border-color:grey;
+    border-radius: 12px;
+    color: white;
+    width: 145px;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: grey;
+}
+.table{
+    width:100%;
+}
+table, th, td {
+    border: 3px solid #0086b3;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
