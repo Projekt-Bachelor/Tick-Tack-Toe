@@ -23,17 +23,7 @@ public class CApplication {
      */
     public static void main(final String[] p_args) {
         SpringApplication.run(CApplication.class, p_args);
-        if(Runde == false){
-            //neuesSpiel();
-            neuesFeld();
-            Anfaenger = true;
-        }
-        else {
-            System.out.println("Es wurde kein Spielstein gesetzt! Setzten sie bitte zum Vortfahren einen Spielstein");
-            int x = -1;
-            int y=-1;
-            Spiel.setzen(x, y);// Benutzer setzt einen Stein
-        }
+
     }
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(@ModelAttribute("spiel") Spiel spiel) {

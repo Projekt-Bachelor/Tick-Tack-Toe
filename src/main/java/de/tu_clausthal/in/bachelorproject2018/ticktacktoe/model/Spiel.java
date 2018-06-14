@@ -4,9 +4,6 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Spiel.neuesSpiel;
-import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Stein.Kreis;
-
 public class Spiel {
 
 	
