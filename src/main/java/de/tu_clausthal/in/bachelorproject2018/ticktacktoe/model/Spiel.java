@@ -1,15 +1,19 @@
 package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model;
 
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.EItem;
 import java.util.Random;
-import java.util.Arrays;
 
-import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Spiel.neuesSpiel;
-import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Stein.Kreis;
+;
 
+
+/**
+ * @todo diese ganze Logik, wann wer gewonnen hat, mus sin das CSpielebrett
+ */
+@Deprecated
 public class Spiel {
     public static boolean Runde = false;
     public static boolean Anfaenger;
-    static Stein[][] aktuellesFeld = Spielbrett.feld;
+    static EItem[][] aktuellesFeld = null;
     //int size = Spielbrett.check();
     int size = 3;
 
@@ -38,7 +42,7 @@ public class Spiel {
             //int y=-1;
             Spiel.setzen(x, y);// Benutzer setzt einen Stein
         }
-        aktuellesFeld[x][y]=Kreis;
+        aktuellesFeld[x][y]=EItem.KREIS;
     }
 
     /* Alle Felder gefüllt */
@@ -49,7 +53,7 @@ public class Spiel {
 
     /* falls ein neues Spiel erstellt werden soll oder der Reset Botton verwendet wird */
     public static void neuesFeld() {
-        Arrays.fill(Spielbrett.feld, null);
+        //Arrays.fill( CSpielbrett.feld, null);
 
     }
 
@@ -61,8 +65,8 @@ public class Spiel {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
 
-                if (aktuellesFeld[i][j] == Kreis) OCounter++;
-                else if (aktuellesFeld[i][j] == Stein.Kreuz) {
+                if (aktuellesFeld[i][j] == EItem.KREIS) OCounter++;
+                else if ( aktuellesFeld[i][j] == EItem.KREUZ) {
                     XCounter++;
                 }
             }
@@ -74,16 +78,16 @@ public class Spiel {
 
         /*Diagonal links prüfen*/
         for (int i = size - 1, j = size - 1; i >= 0; i--, j--) {
-            if (aktuellesFeld[i][j] == Kreis) OCounter++;
-            else if (aktuellesFeld[i][j] == Stein.Kreuz) XCounter++;
+            if (aktuellesFeld[i][j] == EItem.KREIS) OCounter++;
+            else if ( aktuellesFeld[i][j] == EItem.KREUZ) XCounter++;
         }
         if (OCounter == size || XCounter == size) return true;
 
         /*Diagonal rechts prüfen */
 
         for (int i = 0, j = 0; i < size; i++, j++) {
-            if (aktuellesFeld[i][j] == Kreis) OCounter++;
-            else if (aktuellesFeld[i][j] == Stein.Kreuz) XCounter++;
+            if (aktuellesFeld[i][j] == EItem.KREIS) OCounter++;
+            else if ( aktuellesFeld[i][j] == EItem.KREUZ) XCounter++;
         }
         if (OCounter == size || XCounter == size) return true;
 

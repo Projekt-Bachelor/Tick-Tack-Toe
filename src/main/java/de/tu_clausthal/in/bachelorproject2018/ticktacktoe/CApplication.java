@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Spiel.*;
+import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Spiel.Anfaenger;
+import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Spiel.Runde;
+import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Spiel.neuesFeld;
 
 /**
  * Applikation
