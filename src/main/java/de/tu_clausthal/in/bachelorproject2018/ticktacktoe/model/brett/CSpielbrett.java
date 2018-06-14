@@ -43,13 +43,16 @@ public final class CSpielbrett implements ISpieleBrett
     private final AtomicReference<IItem>[][] m_elements;
 
     /**
-     * Konstruktor
+     * Konstruktor.
+     * Da bei der Array-Initialisierung des AtomicReference Arrays der Generic-Parameter nicht mitgegeben werden kann
+     * und dies zu einem Compilerfehler führt, wird mittels @SuppressWarnings diese Fehler unterdrückt, aber das sollte
+     * man nur in begründeten Ausnahmefällen machen
      *
      * @param p_name Name des Spiels / Spielebretts
      * @param p_width Anzahl der Spalten
      * @param p_height Anzahl der Zeilen
      */
-    @SuppressWarnings( "unchecked" )
+    @SuppressWarnings( {"unchecked", "rawtypes"} )
     public CSpielbrett( final String p_name, final int p_width, final int p_height )
     {
         m_name = p_name;

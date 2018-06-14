@@ -8,8 +8,8 @@ import java.util.Random;
 
 /**
  * @todo diese ganze Logik, wann wer gewonnen hat, mus sin das CSpielebrett
+ * @todo diese Klasse kann dann entfernt werden
  */
-@Deprecated
 public class Spiel {
     public static boolean Runde = false;
     public static boolean Anfaenger;
