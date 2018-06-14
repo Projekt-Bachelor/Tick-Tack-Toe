@@ -2,95 +2,160 @@ package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model;
 
 import java.util.Random;
 import java.util.Arrays;
-
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Spiel.neuesSpiel;
 import static de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.Stein.Kreis;
 
 public class Spiel {
-    public static boolean Runde = false;
-    public static boolean Anfaenger;
-    static Stein[][] aktuellesFeld = Spielbrett.feld;
-    //int size = Spielbrett.check();
-    int size = 3;
 
+	
+	static int[][] board  = new int[3][3];
 
-    boolean anfaenger() {
-        //0 ist der Kreis und 1 ist X
-        Random rand = new Random();
-        Anfaenger = rand.nextBoolean();
-        ;
-        return Anfaenger;
+	public static void main(String[] args) {
+		
+		int winner = game(board, 1);
+		System.out.println(winner);
+		
+	}
+	
+	public static int game(int[][] board, int difficulty) {
+		
+		while(won(board) == 0) {	
+			printboard(board);
+			
+			int x;
+			int y;
+			int winner;
+			do {
+				Scanner s1 = new Scanner(System.in);
+				x = Integer.parseInt(s1.nextLine());
+				Scanner s2 = new Scanner(System.in);
+				y = Integer.parseInt(s2.nextLine());
+			}while(board[x][y] != 0);
+			board[x][y] = 1;
+			winner = won(board);
+			if(winner > 0) {
+				printboard(board);
+				return winner;
+			}
+			
+			printboard(board);
+			
+			board = bot(board, difficulty);
+			winner = won(board);
+			if(winner > 0) {
+				printboard(board);
+				return winner;
+			}
+			
+		}
+		printboard(board);
+		return 3;
+	}
+	
+	public static void printboard(int[][] board) {
+		for(int[] line: board) {
+			for(int field: line) {
+				System.out.print(field + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public static int won(int[][] board) {
+		
+		boolean isDraw = true;
+		for(int[] line: board) {
+			for(int field: line) {
+				if(field == 0) {
+					isDraw = false;
+				}
+			}
+		}
+		
+		if(isDraw == true) {
+			return 3;
+		}
+		else if(board[1][0] == board[1][1] && board[1][0] == board[1][2] && board[1][0] != 0) {
+			return board[1][0];
+		}
+		else if(board[2][0] == board[2][1] && board[2][0] == board[2][2] && board[2][0] != 0) {
+			return board[2][0];
+		}
+		else if(board[0][0] == board[1][0] && board[0][0] == board[2][0] && board[0][0] != 0) {
+			return board[0][0];
+		}
+		else if(board[0][1] == board[1][1] && board[0][1] == board[2][1] && board[0][1] != 0) {
+			return board[0][1];
+		}
+		else if(board[0][2] == board[1][2] && board[0][2] == board[2][2] && board[0][2] != 0) {
+			return board[0][2];
+		}
+		else if(board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] != 0) {
+			return board[0][0];
+		}
+		else if(board[2][0] == board[1][1] && board[2][0] == board[0][2] && board[2][0] != 0) {
+			return board[2][0];
+		}
+		else if(board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] != 0) {
+			return board[0][0];
+		}
+		else {
+			return 0;
+		}
+	}
+	
+	public static int[][] bot(int[][] board, int difficulty) {
 
-    }
+		switch(difficulty) {
+		case 0:
+			return player(board);
+		case 1:
+			return randomBot(board);
+		case 2:
+			int i = ThreadLocalRandom.current().nextInt(0, 11);
+			if(i < 4) {
+				return randomBot(board);
+			}
+			else {
+				return minimaxBot(board);
+			}
+		case 3:
+			return minimaxBot(board);
+		
+		}
+		return board;
+	}
+	
+	public static int[][] player(int[][] board){
+		int x;
+		int y;
+		do {
+			Scanner s1 = new Scanner(System.in);
+			x = Integer.parseInt(s1.nextLine());
+			Scanner s2 = new Scanner(System.in);
+			y = Integer.parseInt(s2.nextLine());
+		}while(board[x][y] != 0);
+		board[x][y] = 2;
+		return board;
+	}
+	
+	public static int[][] randomBot(int[][] board){
+		int x;
+		int y;
+		do {
+			x = ThreadLocalRandom.current().nextInt(0, 3);
+			y = ThreadLocalRandom.current().nextInt(0, 3);
+		}while(board[x][y] != 0);
+		board[x][y] = 2;
+		return board;
+	}
+	
+	public static int[][] minimaxBot(int[][] board){
+		
+		return board;
+	}
 
-    public static void neuesSpiel(){
-        Runde=true;
-        neuesFeld();
-    }
-
-    public static void setzen(int x, int y) {
-        if(Runde == false){
-            neuesSpiel();
-        }
-        else {
-            System.out.println("Es wurde kein Spielstein gesetzt! Setzten sie bitte zum Vortfahren einen Spielstein");
-            //int x = -1;
-            //int y=-1;
-            Spiel.setzen(x, y);// Benutzer setzt einen Stein
-        }
-        aktuellesFeld[x][y]=Kreis;
-    }
-
-    /* Alle Felder gefüllt */
-    boolean feldVoll() {
-        return false;
-    }
-
-
-    /* falls ein neues Spiel erstellt werden soll oder der Reset Botton verwendet wird */
-    public static void neuesFeld() {
-        Arrays.fill(Spielbrett.feld, null);
-
-    }
-
-    /* Prüft, ob es eine 3er Reihe gibt, und jemand gewonnen hat */
-    public boolean feld_pruefen() {
-        int XCounter = 0;
-        int OCounter = 0;
-
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-
-                if (aktuellesFeld[i][j] == Kreis) OCounter++;
-                else if (aktuellesFeld[i][j] == Stein.Kreuz) {
-                    XCounter++;
-                }
-            }
-            if (XCounter == size || OCounter == size) return true;
-            break;
-        }
-        OCounter = 0;
-        XCounter = 0;
-
-        /*Diagonal links prüfen*/
-        for (int i = size - 1, j = size - 1; i >= 0; i--, j--) {
-            if (aktuellesFeld[i][j] == Kreis) OCounter++;
-            else if (aktuellesFeld[i][j] == Stein.Kreuz) XCounter++;
-        }
-        if (OCounter == size || XCounter == size) return true;
-
-        /*Diagonal rechts prüfen */
-
-        for (int i = 0, j = 0; i < size; i++, j++) {
-            if (aktuellesFeld[i][j] == Kreis) OCounter++;
-            else if (aktuellesFeld[i][j] == Stein.Kreuz) XCounter++;
-        }
-        if (OCounter == size || XCounter == size) return true;
-
-
-        return false;
-
-
-    }
 }
 
