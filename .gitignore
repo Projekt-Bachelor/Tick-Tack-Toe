@@ -6,7 +6,6 @@
 !system.properties
 !pom.xml
 !*.java
-!.circleci/config.yml
 
 !src/main/resources/static/*.html
 !src/main/resources/static/*.css
