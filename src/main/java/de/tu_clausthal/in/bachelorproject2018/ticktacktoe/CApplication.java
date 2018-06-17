@@ -22,6 +22,7 @@ public class CApplication {
      * @param p_args arguments
      */
     public static void main(final String[] p_args) {
+        System.setProperty("spring.devtools.restart.enabled", "true");
         SpringApplication.run(CApplication.class, p_args);
 
     }
