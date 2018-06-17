@@ -71,3 +71,10 @@ td:hover{
     transition: 0.1s;
     z-index:10;
 }
+
+img {
+    display: block;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}

@@ -38,7 +38,7 @@ public class CSpielebrettController {
         return ESpiele.INSTANCE.apply(p_name);
     }
 
-    @RequestMapping(value = "/set-mark/{name}/{x}/{y}")
+    @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
     public ESpiele set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
         return ESpiele.INSTANCE.set(p_name, p_x, p_y);
     }
