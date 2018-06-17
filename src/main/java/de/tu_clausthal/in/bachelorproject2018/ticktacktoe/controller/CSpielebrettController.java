@@ -14,19 +14,17 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
  * @todo hier müsen verschiedene Aufrufen hinein, um z.B. ein Brett mit einem Human-Player, Random-Bot und Min-Max-Bot zu erzuegen
  */
 @RestController
-@RequestMapping( "/spielebrett" )
-public class CSpielebrettController
-{
+@RequestMapping("/spielebrett")
+public class CSpielebrettController {
     /**
      * erzeugt einen neues Brett
      *
      * @param p_name Name des Bretts
      */
-    @RequestMapping( value = "/create/{name}/{width}/{height}" )
-    public void create( @PathVariable( "name" ) final String p_name, @PathVariable( "width" ) final int p_width, @PathVariable( "height" ) final int p_height )
-    {
+    @RequestMapping(value = "/create/{name}/{width}/{height}")
+    public void create(@PathVariable("name") final String p_name, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
         // in dem Singleton der Tables wird nun ein neuer Tisch mit einem Namen und einem Besitzer erzeugt
-        ESpiele.INSTANCE.generate( p_name, p_width, p_height );
+        ESpiele.INSTANCE.generate(p_name, p_width, p_height);
     }
 
     /**
@@ -35,10 +33,14 @@ public class CSpielebrettController
      * @param p_name Name des Spielebretts
      * @return Spielebrett
      */
-    @RequestMapping( value = "/{name}/show", produces = APPLICATION_JSON_VALUE )
-    public ISpieleBrett players( @PathVariable( "name" ) final String p_name )
-    {
-        return ESpiele.INSTANCE.apply( p_name );
+    @RequestMapping(value = "/{name}/show", produces = APPLICATION_JSON_VALUE)
+    public ISpieleBrett players(@PathVariable("name") final String p_name) {
+        return ESpiele.INSTANCE.apply(p_name);
+    }
+
+    @RequestMapping(value = "/set-mark/{name}/{x}/{y}")
+    public ESpiele set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
+        return ESpiele.INSTANCE.set(p_name, p_x, p_y);
     }
 
 }

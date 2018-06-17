@@ -18,7 +18,7 @@ public final class CSpieleController
 {
 
     /**
-     * Aufruf um eine Liste aller Tischnamen zu erhalten
+     * Aufruf um eine Liste aller Spielnamen zu erhalten
      *
      * @return Tischliste
      */
