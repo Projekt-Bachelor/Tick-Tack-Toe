@@ -1,5 +1,6 @@
-const name = "spiel";
-let pollTimer
+let name = "Spiel-0";
+let name_counter;
+let pollTimer;
 
 
 function requestJSON(url, callback) {
@@ -23,9 +24,9 @@ let global_data={
         "height":3,
         "name":"spiel",
         "elements":[
-        [null,null,null],
-        [null,null,null],
-        [null,null,null]
+        [null,null,'o'],
+        [null,'x','o'],
+        ['x',null,null]
     ]}
 function updateGame(data) {
     data=global_data
@@ -47,6 +48,17 @@ function updateGame(data) {
                     break;
             }
         }
+    }
+}
+
+function gameName(name_counter, name){
+    if (name_counter == null){
+        name_counter =0;
+        name ='Spiel-'+name_counter;
+    }
+    else{
+        name_counter++;
+        name ='Spiel-'+name_counter;
     }
 }
 
@@ -81,6 +93,7 @@ function tableCreate(width, height) {
 }
 
 function startGame(data) {
+    gameName(name_counter, name);
     tableCreate(data.width, data.height);
     pollTimer = window.setInterval( checkForUpdate, 500);
 }

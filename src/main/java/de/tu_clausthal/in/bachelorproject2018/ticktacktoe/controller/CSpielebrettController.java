@@ -21,6 +21,7 @@ public class CSpielebrettController {
      *
      * @param p_name Name des Bretts
      */
+    //    @RequestMapping(value = "/create/{name}/{width}/{height}")
     @RequestMapping(value = "/create/{name}/{width}/{height}")
     public ISpieleBrett create(@PathVariable("name") final String p_name, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
         ESpiele.INSTANCE.generate(p_name, p_width, p_height);
