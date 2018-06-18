@@ -19,22 +19,21 @@ Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrsc
 ### Verwendete Tools
 
 * Framework: Spring-Boot 
-* Sprache: Java 8
+* Sprache: Java 8, Java Skript
 * Graphische Oberfläche:HTML, CSS, Java Template Engine
-* Fonst für X & O: https://fontawesome.com/icons?d=gallery
-* Build Tool: ?
+* Fonst für X & O: selbst erstellt
 
 
 ### Meilstones
 
 - Model: Daten des Spiels
 	- Spielbrett
-	- Regeln
+	- Regeln der Spielelogik
 	- Spieler mit Symbol
 	- Minimax Algorithmus für den Bot in eingener Botklasse
 - View: Visualisierung
 
-- Controller: Umsetzung der Spielelogik
+- Controller: Verknüpfung View und Spielelogik
 
 
 
@@ -45,6 +44,7 @@ Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrsc
 3. App clone von Github
 **Pro Team**  
 1. eine Person ist für Heroku Deployment zuständig
+&rarr; Marie
 
 ## Notizen
 ## Projektaufbau  
@@ -53,10 +53,4 @@ Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrsc
 &rarr; View (HTML, Game-Engine)  
 &rarr; Logik
 
--  Welt  
-	- unabhängig vom View  
-	- Sparse Objekt Matrix (PanelColt)
-	- Ennum/Kartendeck 
-
-- bot via D3 Chart,js am 7.06.2018 *Vortrag!* ?
 
