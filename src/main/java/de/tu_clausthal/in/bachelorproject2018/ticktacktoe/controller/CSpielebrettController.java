@@ -22,9 +22,9 @@ public class CSpielebrettController {
      * @param p_name Name des Bretts
      */
     @RequestMapping(value = "/create/{name}/{width}/{height}")
-    public void create(@PathVariable("name") final String p_name, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
-        // in dem Singleton der Tables wird nun ein neuer Tisch mit einem Namen und einem Besitzer erzeugt
+    public ISpieleBrett create(@PathVariable("name") final String p_name, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
         ESpiele.INSTANCE.generate(p_name, p_width, p_height);
+        return ESpiele.INSTANCE.apply(p_name);
     }
 
     /**
