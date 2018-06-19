@@ -25,7 +25,6 @@ Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrsc
 * Sprache: Java 8, Java Skript
 * Graphische Oberfläche:HTML, CSS, Java Template Engine
 * Fonst für X & O: selbst erstellt
-* Sweet-Alert eingebunden: https://sweetalert.js.org/guides/
 
 
 ### Meilstones
