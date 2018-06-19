@@ -2,6 +2,9 @@ package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.controller;
 
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.ESpiele;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.ISpieleBrett;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.CRandomBot;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IPlayer;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +23,7 @@ public class CSpielebrettController {
      * erzeugt einen neues Brett
      *
      * @param p_name Name des Bretts
+     * Überarbeitung um den Typ mitzübergeben
      */
     //    @RequestMapping(value = "/create/{name}/{width}/{height}")
     @RequestMapping(value = "/create/{name}/{width}/{height}")
@@ -44,4 +48,32 @@ public class CSpielebrettController {
         return ESpiele.INSTANCE.set(p_name, p_x, p_y);
     }
 
+
+    /**
+     * ruft die Gegner-Bots auf
+     */
+    @RequestMapping(value = "/{name}/{type}")
+    public void accept(@PathVariable("name") final String p_name, @PathVariable("type") final String type) {
+        switch (type) {
+            case "PvP":
+                System.out.println("PvP wurde ausgewählt");
+                break;
+
+            case "einfach":
+                System.out.println("Einfach wurde ausgewählt");
+                break;
+
+            case "mittel":
+                System.out.println("Mittel wurde ausgewählt");
+                break;
+
+            case "schwer":
+                System.out.println("Schwer wurde ausgewählt");
+                break;
+
+            default:
+                System.out.println("Es wurde kein gültiger Bot ausgewählt... Fehler bei der Zuweisung!");
+        }
+
+    }
 }

@@ -103,6 +103,11 @@ public final class CSpielbrett implements ISpieleBrett
     }
 
     @Override
+    public String type() {
+        return null;
+    }
+
+    @Override
     public boolean isempty( final int p_x, final int p_y )
     {
         return Objects.isNull( m_elements[p_x][p_y].get() );

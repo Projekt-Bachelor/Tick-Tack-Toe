@@ -28,6 +28,14 @@ public interface ISpieleBrett
     int height();
 
     /**
+     * liefert zurück welcher Bot gestartet wird
+     *
+     * @return welcher Bot
+     */
+    String type();
+
+
+    /**
      * prüft ob ein Feld gesetzt ist
      *
      * @param p_x X Position
@@ -37,7 +45,7 @@ public interface ISpieleBrett
     boolean isempty( final int p_x, final int p_y );
 
     /**
-     * setzt ein Feld un liefert zurück, ob gesetzt werden konte
+     * setzt ein Feld un liefert zurück, ob gesetzt werden konnte
      *
      * @param p_item Item (Kreuz / Kreis)
      * @return konnte gesetzt werden oder nicht

@@ -1,3 +1,5 @@
+const notifier = new AWN();
+
 let name = "Spiel-0";
 let name_counter;
 let pollTimer;
@@ -17,24 +19,25 @@ function requestJSON(url, callback) {
 /**
  *
  * @param data
- * @todo updateGame schreiben
  */
-let global_data={
-    "width":3,
-        "height":3,
-        "name":"spiel",
-        "elements":[
-        [null,null,'o'],
-        [null,'x','o'],
-        ['x',null,null]
-    ]}
+let global_data = {
+    "width": 3,
+    "height": 3,
+    "name": "spiel",
+    "elements": [
+        [null, null, 'o'],
+        [null, 'x', 'o'],
+        ['x', null, null]
+    ]
+}
+
 function updateGame(data) {
-    data=global_data
+    data = global_data
 
     for (let row_index = 0; row_index < data.height; row_index++) {
         for (let col_index = 0; col_index < data.width; col_index++) {
             const cell = document.getElementById('cell-row-' + row_index + '-col-' + col_index)
-                switch(data.elements[row_index][col_index]){
+            switch (data.elements[row_index][col_index]) {
                 case 'x':
                     cell.innerHTML = '<img src="cross.svg">'
                     break;
@@ -51,23 +54,23 @@ function updateGame(data) {
     }
 }
 
-function gameName(name_counter, name){
-    if (name_counter == null){
-        name_counter =0;
-        name ='Spiel-'+name_counter;
+function gameName(name_counter, name) {
+    if (name_counter == null) {
+        name_counter = 0;
+        name = 'Spiel-' + name_counter;
     }
-    else{
+    else {
         name_counter++;
-        name ='Spiel-'+name_counter;
+        name = 'Spiel-' + name_counter;
     }
 }
 
-function checkForUpdate(){
+function checkForUpdate() {
     requestJSON("/spiele/list", function (data) {
         if (data.includes(name)) {
             requestJSON('/spielebrett/' + name + '/show', updateGame)
-        }else{
-            console.log('Game '+name+'disappeared')
+        } else {
+            console.log('Game ' + name + 'disappeared')
             clearInterval(pollTimer)
         }
     })
@@ -93,15 +96,38 @@ function tableCreate(width, height) {
 }
 
 function startGame(data) {
-    gameName(name_counter, name);
+    //gameName(name_counter, name);
     tableCreate(data.width, data.height);
-    pollTimer = window.setInterval( checkForUpdate, 500);
+    pollTimer = window.setInterval(checkForUpdate, 500);
 }
+
+
+
+/**Player vs Player wird ausgewählt*/
+document.getElementById('PvP').addEventListener('click', ()=>notifier.success ('Ein Player vs Player Spiel wird gestartet.'))
+document.getElementById('PvP').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/PvP" , tableCreate))
+
+/**Einfaches Spiel soll gestartet werden*/
+document.getElementById('einfach').addEventListener('click', ()=>notifier.success ('Ein einfaches Spiel gegen einen Bot wird gestartet.'))
+document.getElementById('einfach').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/einfach" , tableCreate))
+
+/**Spiel mit mittlerer Schwierigkeit soll gestartet werden*/
+document.getElementById('mittel').addEventListener('click', ()=>notifier.success ('Ein mittleres Spiel gegen einen Bot wird gestartet.'))
+document.getElementById('mittel').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/mittel" , tableCreate))
+
+/**Spiel gegen den Bot soll gestartet werden*/
+document.getElementById('schwer').addEventListener('click', ()=>notifier.success ('Ein schweres Spiel gegen einen Bot wird gestartet. '))
+document.getElementById('schwer').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/schwer" , tableCreate))
+
+
+
+
+
 
 requestJSON("/spiele/list", function (data) {
     if (data.includes(name)) {
         console.log('game ' + name + ' already exists')
-        requestJSON('/spielebrett/'+name+'/show', startGame)
+        requestJSON('/spielebrett/' + name + '/show', startGame)
     } else {
         console.log('creating game ' + name)
         requestJSON('/spielebrett/create/' + name + '/3/3', startGame)
