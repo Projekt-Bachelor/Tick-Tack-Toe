@@ -1,5 +1,8 @@
 # Bachelorproject 2018 - Tic-Tack-Toe
-
+### Wichtige Links
+- Dokumentation: https://projekt-bachelor.github.io/Tick-Tack-Toe/sources/
+- Github Page: https://projekt-bachelor.github.io/Tick-Tack-Toe/
+- Heroku-App:https://thawing-journey-93339.herokuapp.com/
 ### Grobe Idee 
 
 Webaplikation, die ein Tic Tac Toe Spiel anbietet. Hierbei soll im weiteren Verlauf das Spielen gegen einen Bot der lernt umgesetzt werden.
@@ -47,7 +50,7 @@ Es gibt 255.168 Möglichkeiten wie das Spiel ausgehen kann. Dabei ist die Wahrsc
 &rarr; Marie
 
 ## Notizen
-## Projektaufbau  
+### Projektaufbau  
 
 &rarr; REST Test (Abfrage der Daten des Controllers)  
 &rarr; View (HTML, Game-Engine)  
