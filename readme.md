@@ -11,6 +11,7 @@ Webaplikation, die ein Tic Tac Toe Spiel anbietet. Hierbei soll im weiteren Verl
 ### Spielregeln
 
 * Spielfeld ist 3 x 3 
+* Es startet immer X und der Gegner(Bot oder zweiter Spieler ist Kreis)
 * Abwechseld werden Kreuze und Kreise in die freien Felder gesetzt 
 * Falls ein Spieler 3 Zeichen in entweder einer Zeile, Spalte oder Diagonalen setzt, gewinnt dieser das Spiel
 * Falls  eine 3 Reihe nicht mehr erreichbar ist beziehungsweise alle neun Felder ohne 3er Serie belegt sind &rarr; Unentschieden
