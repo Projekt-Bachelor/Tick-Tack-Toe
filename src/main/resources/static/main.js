@@ -1,3 +1,55 @@
+"use strict";
+
+$(function () {
+
+    const name = "foo";
+    const breite = 3;
+    const hoehe = 3;
+
+
+    jQuery.ajax("/spielebrett/create/" + name + "/" + breite + "/" + hoehe )
+        .done(function(i) {
+
+            console.log(i);
+            for (let row_index = 0; row_index < i.height; row_index++)
+            {
+                let l_row = $("<tr/>");
+                $("#game-table").append( l_row );
+
+                for (let col_index = 0; col_index < i.width; col_index++)
+                    l_row.append(
+                        $("<td/>").append(
+                            $("<img/>")
+                                .addClass("isclickable")
+                                .attr("id", "field_" + row_index + "_" + col_index )
+                        )
+                    );
+            }
+
+
+        })
+        .fail(function(i) {
+            console.log(i);
+        });
+
+
+    $("body").on("click", ".isclickable", function(){
+        // this ist der img-Tag
+        console.log( jQuery(this).attr("id").split("_") );
+
+        //jQuery(this).att("src", "<URL zum Bild")
+    });
+
+    $("#einfach").click(function() {
+        console.log("foo");
+    })
+
+});
+
+
+
+/*
+
 const notifier = new AWN();
 
 let name = "Spiel-0";
@@ -16,10 +68,10 @@ function requestJSON(url, callback) {
 }
 
 
-/**
+**
  *
  * @param data
- */
+ *
 let global_data = {
     "width": 3,
     "height": 3,
@@ -76,11 +128,11 @@ function checkForUpdate() {
     })
 }
 
-/**
+**
  * Diese Funktion erstellt eine Tabelle nach den param.
  * @param width
  * @param height
- */
+ *
 function tableCreate(width, height) {
     const table = document.getElementById('game-table');
 
@@ -103,19 +155,19 @@ function startGame(data) {
 
 
 
-/**Player vs Player wird ausgewählt*/
+**Player vs Player wird ausgewählt*
 document.getElementById('PvP').addEventListener('click', ()=>notifier.success ('Ein Player vs Player Spiel wird gestartet.'))
 document.getElementById('PvP').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/PvP" , tableCreate))
 
-/**Einfaches Spiel soll gestartet werden*/
+**Einfaches Spiel soll gestartet werden*
 document.getElementById('einfach').addEventListener('click', ()=>notifier.success ('Ein einfaches Spiel gegen einen Bot wird gestartet.'))
 document.getElementById('einfach').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/einfach" , tableCreate))
 
-/**Spiel mit mittlerer Schwierigkeit soll gestartet werden*/
+**Spiel mit mittlerer Schwierigkeit soll gestartet werden*
 document.getElementById('mittel').addEventListener('click', ()=>notifier.success ('Ein mittleres Spiel gegen einen Bot wird gestartet.'))
 document.getElementById('mittel').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/mittel" , tableCreate))
 
-/**Spiel gegen den Bot soll gestartet werden*/
+**Spiel gegen den Bot soll gestartet werden*
 document.getElementById('schwer').addEventListener('click', ()=>notifier.success ('Ein schweres Spiel gegen einen Bot wird gestartet. '))
 document.getElementById('schwer').addEventListener('click', () => requestJSON("/spielebrett/" + name + "/schwer" , tableCreate))
 
@@ -135,3 +187,4 @@ requestJSON("/spiele/list", function (data) {
 })
 
 
+*/
