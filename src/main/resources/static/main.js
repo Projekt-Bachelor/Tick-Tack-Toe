@@ -7,45 +7,51 @@ $(function () {
     const hoehe = 3;
 
 
-    jQuery.ajax("/spielebrett/create/" + name + "/" + breite + "/" + hoehe )
-        .done(function(i) {
+    jQuery.ajax("/spielebrett/create/" + name + "/" + breite + "/" + hoehe)
+        .done(function (i) {
 
             console.log(i);
-            for (let row_index = 0; row_index < i.height; row_index++)
-            {
+            for (let row_index = 0; row_index < i.height; row_index++) {
                 let l_row = $("<tr/>");
-                $("#game-table").append( l_row );
+                $("#game-table").append(l_row);
 
                 for (let col_index = 0; col_index < i.width; col_index++)
                     l_row.append(
                         $("<td/>").append(
                             $("<img/>")
-                                .addClass("isclickable")
-                                .attr("id", "field_" + row_index + "_" + col_index )
+                                //.addClass("isclickable")
+                                .attr("id", "field_" + row_index + "_" + col_index)
                         )
                     );
             }
 
 
         })
-        .fail(function(i) {
+        .fail(function (i) {
             console.log(i);
         });
 
 
-    $("body").on("click", ".isclickable", function(){
+    $("body").on("click", ".isclickable", function () {
         // this ist der img-Tag
-        console.log( jQuery(this).attr("id").split("_") );
+        console.log(jQuery(this).attr("id").split("_"));
 
         //jQuery(this).att("src", "<URL zum Bild")
     });
 
-    $("#einfach").click(function() {
-        console.log("foo");
+    $("#einfach").click(function () {
+        console.log("Der Button einfach wurde geklickt!");
     })
-
+    $("#mittel").click(function () {
+        console.log("Der Button mittel wurde geklickt!");
+    })
+    $("#schwer").click(function () {
+        console.log("Der Button schwer wurde geklickt!");
+    })
+    $("#PvP").click(function () {
+        console.log("Der Button PvP wurde geklickt!");
+    })
 });
-
 
 
 /*
