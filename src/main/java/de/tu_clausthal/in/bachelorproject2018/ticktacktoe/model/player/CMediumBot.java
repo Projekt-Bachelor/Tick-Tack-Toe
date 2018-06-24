@@ -28,8 +28,10 @@ public class CMediumBot extends IBasePlayer
         int i;
         i = m_random.nextInt(10);
         if(i <= 7){
-            C
+
         }
-        else CRandomBot.accept(iSpieleBrett);
+        else{
+            
+        }
     }
 }
