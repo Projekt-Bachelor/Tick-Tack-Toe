@@ -113,12 +113,74 @@ public final class CSpielbrett implements ISpieleBrett
         return Objects.isNull( m_elements[p_x][p_y].get() );
     }
 
+
     @Override
-    public boolean set( final IItem p_item )
+    public boolean[] set(final IItem p_item )
     {
-        // @todo hier kann z.B. die Logik hin um zu überprüfen, wer gewonnen hat
+        boolean[] set_won_draw = {false, false, false};
+        set_won_draw[0] = m_elements[p_item.x()][p_item.y()].compareAndSet( null, p_item );
+
+        // Logik um zu überprüfen, wer gewonnen hat
+        if(set_won_draw[0]) {
+            set_won_draw[1] = won(p_item, m_elements);
+            if(!set_won_draw[1]){
+                set_won_draw[2] = draw(m_elements);
+            }
+        }
+
         // @todo wenn ein Gewinner feststeht, dann muss danach das Spielebrett-Objekt aus dem Enum ESpiele mittels remove entfernt werden
-        return m_elements[p_item.y()][p_item.y()].compareAndSet( null, p_item );
+        if((set_won_draw[1] == true || set_won_draw[2] == true)){
+
+        }
+
+        return set_won_draw;
+    }
+
+    public boolean won(final IItem p_item, AtomicReference<IItem>[][] elements)
+    {
+        boolean won;
+        int x = p_item.x();
+        int y = p_item.y();
+
+        if(hasEqualValue(elements[0][0], elements[1][1], elements[2][2])){
+            won = true;
+        }
+        else if(hasEqualValue(elements[2][0], elements[1][1], elements[0][2])){
+            won = true;
+        }
+        else if(hasEqualValue(elements[x][0], elements[x][1], elements[x][2])){
+            won = true;
+        }
+        else if(hasEqualValue(elements[0][y], elements[1][y], elements[2][y])){
+            won = true;
+        }
+        else{
+            won = false;
+        }
+        return won;
+    }
+
+    public boolean draw(AtomicReference<IItem>[][] elements)
+    {
+        boolean draw = true;
+        for(AtomicReference<IItem>[] line: elements){
+            for(AtomicReference<IItem> field: line){
+                if(field.get() == null){
+                    draw = false;
+                }
+            }
+        }
+        return draw;
+    }
+
+    public boolean hasEqualValue(AtomicReference<IItem> element1, AtomicReference<IItem> element2, AtomicReference<IItem> element3)
+    {
+        if(element1.get().item() == element2.get().item() && element1.get().item() == element3.get().item()) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

@@ -45,11 +45,12 @@ public interface ISpieleBrett
     boolean isempty( final int p_x, final int p_y );
 
     /**
-     * setzt ein Feld un liefert zurück, ob gesetzt werden konnte
+     * prüft ob das Feld in das gesetzt werden soll leer ist und setzt wenn dies der Fall ist
+     * prüft nach dem Setzen, ob das Spiel durch ein Unentschieden oder ein Sieg beendet wird
      *
-     * @param p_item Item (Kreuz / Kreis)
-     * @return konnte gesetzt werden oder nicht
+     * @param p_item
+     * @return [konnte gesetzt werden, gewonnen?, unentschieden?]
      */
-    boolean set( final IItem p_item );
+    boolean[] set(final IItem p_item );
 
 }

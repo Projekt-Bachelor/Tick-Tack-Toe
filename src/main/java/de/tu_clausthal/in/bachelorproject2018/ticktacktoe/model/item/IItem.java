@@ -16,4 +16,10 @@ public interface IItem
      */
     int y();
 
+    /**
+     * liefert den Wert des Items zurück
+     *
+     * @return Wert des Items
+     */
+    boolean item();
 }

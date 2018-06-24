@@ -44,4 +44,7 @@ public final class CItem implements IItem
         return y;
     }
 
+    public final EItem item() { return m_item; }
+
+
 }

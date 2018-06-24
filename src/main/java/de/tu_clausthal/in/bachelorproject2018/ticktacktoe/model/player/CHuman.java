@@ -25,6 +25,7 @@ public final class CHuman extends IBasePlayer
     public void accept( final ISpieleBrett p_iSpieleBrett )
     {
         // @todo das muss über den Websocket oder REST Class gefüllt werden
+
     }
 
 }

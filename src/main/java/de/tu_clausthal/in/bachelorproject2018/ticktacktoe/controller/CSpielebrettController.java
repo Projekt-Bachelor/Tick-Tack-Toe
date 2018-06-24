@@ -48,9 +48,8 @@ public class CSpielebrettController {
         return ESpiele.INSTANCE.set(p_name, p_x, p_y);
     }
 
-
     /**
-     * ruft die Gegner-Bots auf
+     * ruft den Gegner auf
      */
     @RequestMapping(value = "/{name}/{type}")
     public void accept(@PathVariable("name") final String p_name, @PathVariable("type") final String type) {
