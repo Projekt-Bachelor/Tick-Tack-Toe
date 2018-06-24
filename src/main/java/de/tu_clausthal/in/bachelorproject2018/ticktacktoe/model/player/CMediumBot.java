@@ -24,14 +24,14 @@ public class CMediumBot extends IBasePlayer
     public CMediumBot( final EItem p_value ) { super( "Medium-Bot", p_value ); }
 
     @Override
-    public void accept(ISpieleBrett iSpieleBrett) {
+    public void accept(ISpieleBrett p_brett) {
         int i;
-        i = m_random.nextInt(10);
+        i = m_random.nextInt(11);
         if(i <= 7){
 
         }
         else{
-            
+
         }
     }
 }
