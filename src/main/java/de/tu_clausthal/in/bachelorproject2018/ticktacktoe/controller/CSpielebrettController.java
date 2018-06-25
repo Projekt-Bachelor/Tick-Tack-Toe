@@ -52,13 +52,14 @@ public class CSpielebrettController {
      * ruft den Gegner auf
      */
     @RequestMapping(value = "/{name}/{type}")
-    public void accept(@PathVariable("name") final String p_name, @PathVariable("type") final String type) {
+    public void accept(@PathVariable("name") final String p_name, @PathVariable("typ") final String type) {
         switch (type) {
             case "PvP":
                 System.out.println("PvP wurde ausgewählt");
                 break;
 
             case "einfach":
+
                 System.out.println("Einfach wurde ausgewählt");
                 break;
 

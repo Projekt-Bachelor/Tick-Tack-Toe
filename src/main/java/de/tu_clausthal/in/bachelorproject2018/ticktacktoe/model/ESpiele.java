@@ -11,6 +11,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static org.apache.commons.lang.math.RandomUtils.nextInt;
+
 
 /**
  * Singleton mit allen Spielen
@@ -54,7 +56,17 @@ public enum ESpiele implements Function<String, ISpieleBrett>, Supplier<Set<Stri
 
         return l_brett;
     }
+    public void gameName(int name_counter,String name) {
 
+        if (name_counter == nextInt(name_counter)) {
+            name_counter = 0;
+            name = "Spiel-" + name_counter;
+        }
+        else {
+            name_counter++;
+            name = "Spiel-" + name_counter;
+        }
+    }
     @Override
     public Set<String> get() {
         return m_bretter.keySet();
@@ -63,7 +75,7 @@ public enum ESpiele implements Function<String, ISpieleBrett>, Supplier<Set<Stri
     /**
      * @param p_x
      * @param p_y
-     * @TODO: 17.06.18Die Funktion muss einen Stein setzten an der Stelle x, y. Referenz zu dem Cntroller
+     * @TODO: 17.06.18Die Funktion muss einen Stein setzten an der Stelle x, y. Referenz zu dem Controller
      */
 
     public ESpiele set(final String p_name, int p_x, int p_y) {
