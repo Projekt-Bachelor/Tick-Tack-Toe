@@ -56,17 +56,7 @@ public enum ESpiele implements Function<String, ISpieleBrett>, Supplier<Set<Stri
 
         return l_brett;
     }
-    public void gameName(int name_counter,String name) {
 
-        if (name_counter == nextInt(name_counter)) {
-            name_counter = 0;
-            name = "Spiel-" + name_counter;
-        }
-        else {
-            name_counter++;
-            name = "Spiel-" + name_counter;
-        }
-    }
     @Override
     public Set<String> get() {
         return m_bretter.keySet();
