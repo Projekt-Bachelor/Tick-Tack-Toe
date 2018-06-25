@@ -24,6 +24,7 @@ public final class CHuman extends IBasePlayer
     @Override
     public void accept( final ISpieleBrett p_brett )
     {
+        /*
         // @todo das muss über den Websocket oder REST Class gefüllt werden
         int x;
         int y;
@@ -32,6 +33,7 @@ public final class CHuman extends IBasePlayer
         while ( !set_won_draw[0] ) {
             set_won_draw = p_brett.set( m_value.apply( x, y ) );
         }
+        */
     }
 
 }

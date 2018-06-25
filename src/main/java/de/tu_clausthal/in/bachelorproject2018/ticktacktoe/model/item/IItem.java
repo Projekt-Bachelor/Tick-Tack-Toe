@@ -21,5 +21,5 @@ public interface IItem
      *
      * @return Wert des Items
      */
-    boolean item();
+    EItem item();
 }
