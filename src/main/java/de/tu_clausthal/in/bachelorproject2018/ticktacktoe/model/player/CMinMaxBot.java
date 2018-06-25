@@ -15,9 +15,9 @@ public final class CMinMaxBot extends IBasePlayer
      *
      * @param p_value Item (Kreuz / Kreis), das durch den Spieler verwendet wird
      */
-    public CMinMaxBot( final EItem p_value )
+    public CMinMaxBot()
     {
-        super( "Min-Max-Bot", p_value );
+        super( "Min-Max-Bot", EItem.KREIS );
     }
 
     @Override
