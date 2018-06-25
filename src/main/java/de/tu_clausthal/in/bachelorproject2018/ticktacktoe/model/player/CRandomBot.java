@@ -27,16 +27,20 @@ public class CRandomBot extends IBasePlayer
     }
 
     @Override
-    public void accept( final ISpieleBrett p_brett )
+    public void accept(final ISpieleBrett p_brett)
     {
         // Methode, die das setzen übernimmt
-        int x = m_random.nextInt( p_brett.width() );
-        int y = m_random.nextInt( p_brett.height() );
-        while ( !p_brett.set( m_value.apply( x, y ) ) )
-        {
+        int x;
+        int y;
+        x = m_random.nextInt( p_brett.width() );
+        y = m_random.nextInt( p_brett.height() );
+        boolean[] set_won_draw;
+        set_won_draw = p_brett.set( m_value.apply( x, y ) );
+        while ( !set_won_draw[0] ) {
             x = m_random.nextInt( p_brett.width() );
             y = m_random.nextInt( p_brett.height() );
+            set_won_draw = p_brett.set( m_value.apply( x, y ) );
         }
-    }
 
+    }
 }

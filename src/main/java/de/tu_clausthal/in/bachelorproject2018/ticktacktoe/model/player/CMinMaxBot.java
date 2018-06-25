@@ -21,7 +21,7 @@ public final class CMinMaxBot extends IBasePlayer
     }
 
     @Override
-    public void accept( final ISpieleBrett p_iSpieleBrett )
+    public void accept( final ISpieleBrett p_brett )
     {
         // @todo hier muss die Berechnung des Min-Max-Algorithmus hin
     }
