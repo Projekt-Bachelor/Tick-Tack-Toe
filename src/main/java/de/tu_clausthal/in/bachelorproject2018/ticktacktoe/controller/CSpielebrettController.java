@@ -86,20 +86,20 @@ public class CSpielebrettController {
                 gameName(name_counter, name);
                 //final EItem p_value = EItem.KREIS;
                 ESpiele.INSTANCE.generate(name, p_width, p_height);
-                new CRandomBot(EItem.KREIS);
+                new CRandomBot();
 
                 System.out.println("Einfach wurde ausgewählt.");
                 break;
 
             case "mittel":
                 gameName(name_counter, name);
-                new CMediumBot(EItem.KREIS);
+                new CMediumBot();
                 System.out.println("Mittel wurde ausgewählt.");
                 break;
 
             case "schwer":
                 gameName(name_counter, name);
-                new CMinMaxBot(EItem.KREIS);
+                new CMinMaxBot();
                 System.out.println("Schwer wurde ausgewählt.");
                 break;
 

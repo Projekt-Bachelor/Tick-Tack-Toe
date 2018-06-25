@@ -23,7 +23,7 @@ public class CMediumBot extends IBasePlayer
      *
      * @param p_value Item (Kreuz / Kreis), das durch den Spieler verwendet wird
      */
-    public CMediumBot( final EItem p_value ) { super( "Medium-Bot", p_value ); }
+    public CMediumBot() { super( "Medium-Bot", EItem.KREIS ); }
 
     @Override
     public void accept(ISpieleBrett p_brett) {
