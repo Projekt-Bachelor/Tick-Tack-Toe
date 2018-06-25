@@ -25,6 +25,7 @@ public class CMediumBot extends IBasePlayer
 
     @Override
     public void accept(ISpieleBrett p_brett) {
+        /*
         int i;
         i = m_random.nextInt(11);
         if(i <= 7){
@@ -33,5 +34,6 @@ public class CMediumBot extends IBasePlayer
         else{
 
         }
+        */
     }
 }
