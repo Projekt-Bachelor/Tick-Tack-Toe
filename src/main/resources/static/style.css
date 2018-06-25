@@ -81,3 +81,12 @@ img {
     height: 100%;
     width: 100%;
 }
+
+h1 {
+    margin-top: 25px;
+    color: #0086b3;
+    alignment: center;
+    font-family: verdana;
+    font-size: 300%;
+
+}
