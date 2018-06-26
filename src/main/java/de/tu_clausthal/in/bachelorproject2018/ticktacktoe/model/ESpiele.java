@@ -67,7 +67,6 @@ public enum ESpiele implements Function<String, ISpieleBrett>, Supplier<Set<Stri
      * @param p_y
      * @TODO: 17.06.18Die Funktion muss einen Stein setzten an der Stelle x, y. Referenz zu dem Controller
      */
-
     public ESpiele set(final String p_name, int p_x, int p_y) {
 
         return null;

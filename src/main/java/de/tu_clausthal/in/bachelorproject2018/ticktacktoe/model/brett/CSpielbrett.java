@@ -1,6 +1,7 @@
 package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.ESpiele;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.IItem;
 
 import java.util.Objects;
@@ -130,7 +131,7 @@ public final class CSpielbrett implements ISpieleBrett
 
         // @todo wenn ein Gewinner feststeht, dann muss danach das Spielebrett-Objekt aus dem Enum ESpiele mittels remove entfernt werden
         if((set_won_draw[1] == true || set_won_draw[2] == true)){
-
+            ESpiele.INSTANCE.remove(this);
         }
 
         return set_won_draw;

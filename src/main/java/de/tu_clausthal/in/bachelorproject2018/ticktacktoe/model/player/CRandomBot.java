@@ -21,9 +21,9 @@ public class CRandomBot extends IBasePlayer
      *
      * @param p_value Item (Kreuz / Kreis), das durch den Spieler verwendet wird
      */
-    public CRandomBot( final EItem p_value )
+    public CRandomBot()
     {
-        super( "Random-Bot", p_value );
+        super( "Random-Bot", EItem.KREIS );
     }
 
     @Override
