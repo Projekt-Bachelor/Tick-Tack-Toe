@@ -2,10 +2,13 @@ package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.controller;
 
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.ESpiele;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.ISpieleBrett;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.IItem;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.*;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.apache.commons.lang.math.RandomUtils.nextInt;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -72,13 +75,19 @@ public class CSpielebrettController {
     }
 
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
-    public ISpieleBrett set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
+    public AtomicReference<IItem>[][] set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
+        boolean won;
+        boolean draw;
         ISpieleBrett brett = ESpiele.INSTANCE.apply(p_name);
         CHuman player = new CHuman();
         CRandomBot bot = new CRandomBot();
         player.accept(brett, p_x, p_y);
-        //bot.accept(brett);
-        System.out.println(brett);
-        return brett;
+        won = brett.checkWin();
+        draw = brett.checkDraw();
+        bot.accept(brett);
+        won = brett.checkWin();
+        draw = brett.checkDraw();
+        //System.out.println(brett);
+        return brett.getM_elements();
     }
 }

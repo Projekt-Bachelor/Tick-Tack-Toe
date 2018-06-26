@@ -32,6 +32,11 @@ public final class CSpielbrett implements ISpieleBrett
      */
     @JsonProperty( "name" )
     private final String m_name;
+
+    public AtomicReference<IItem>[][] getM_elements() {
+        return m_elements;
+    }
+
     /**
      * ein doppeltes Array von AtomicReferences von IItems,
      * das Array entspricht dem Brett, jedes Element ist eine AtomicReferenz, weil
@@ -138,34 +143,40 @@ public final class CSpielbrett implements ISpieleBrett
         return m_elements[p_item.x()][p_item.y()].compareAndSet( null, p_item );
     }
 
-    public boolean won(final IItem p_item, AtomicReference<IItem>[][] elements)
-    {
+    public boolean checkWin() {
         boolean won;
-        int x = p_item.x();
-        int y = p_item.y();
 
-        if(hasEqualValue(elements[0][0], elements[1][1], elements[2][2])){
+        if (hasEqualValue(m_elements[0][0], m_elements[1][1], m_elements[2][2])) {
             won = true;
-        }
-        else if(hasEqualValue(elements[2][0], elements[1][1], elements[0][2])){
+        } else if (hasEqualValue(m_elements[2][0], m_elements[1][1], m_elements[0][2])) {
             won = true;
-        }
-        else if(hasEqualValue(elements[x][0], elements[x][1], elements[x][2])){
+        } else if (hasEqualValue(m_elements[1][0], m_elements[1][1], m_elements[1][2])) {
             won = true;
-        }
-        else if(hasEqualValue(elements[0][y], elements[1][y], elements[2][y])){
+        } else if (hasEqualValue(m_elements[0][0], m_elements[0][1], m_elements[0][2])) {
             won = true;
-        }
-        else{
+        } else if (hasEqualValue(m_elements[2][0], m_elements[2][1], m_elements[2][2])) {
+            won = true;
+        } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
+            won = true;
+        } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
+            won = true;
+        } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
+            won = true;
+        } else {
             won = false;
         }
+
+        if (won == true) {
+            ESpiele.INSTANCE.remove(this);
+        }
+
         return won;
     }
 
-    public boolean draw(AtomicReference<IItem>[][] elements)
+    public boolean checkDraw()
     {
         boolean draw = true;
-        for(AtomicReference<IItem>[] line: elements){
+        for(AtomicReference<IItem>[] line: m_elements){
             for(AtomicReference<IItem> field: line){
                 if(field.get() == null){
                     draw = false;

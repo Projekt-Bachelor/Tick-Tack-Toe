@@ -2,6 +2,8 @@ package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett;
 
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.IItem;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 
 /**
  * Interface des Spielebretts
@@ -53,4 +55,9 @@ public interface ISpieleBrett
      */
     boolean set(final IItem p_item );
 
+    boolean checkWin();
+
+    boolean checkDraw();
+
+    AtomicReference<IItem>[][] getM_elements();
 }

@@ -33,12 +33,9 @@ public class CRandomBot extends IBasePlayer
         int y;
         x = m_random.nextInt( p_brett.width() );
         y = m_random.nextInt( p_brett.height() );
-        boolean[] set_won_draw;
-        set_won_draw = p_brett.set( m_value.apply( x, y ) );
-        while ( !set_won_draw[0] ) {
+        while ( !p_brett.set( m_value.apply( x, y ) ) ) {
             x = m_random.nextInt( p_brett.width() );
             y = m_random.nextInt( p_brett.height() );
-            set_won_draw = p_brett.set( m_value.apply( x, y ) );
         }
 
     }
