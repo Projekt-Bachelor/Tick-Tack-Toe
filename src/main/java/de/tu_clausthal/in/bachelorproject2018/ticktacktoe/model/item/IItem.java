@@ -21,5 +21,10 @@ public interface IItem
      *
      * @return Wert des Items
      */
-    EItem item();
+
+    int getX();
+
+    int getY();
+
+    EItem getM_item();
 }
