@@ -17,7 +17,7 @@ function requestJSON(url, callback) {
         .catch(e => console.log('Could not process request ' + url + '\n' + e))
 }
 
-function updateGame(brett) {
+function updateGame(data) {
     for (let row_index = 0; row_index < data.height; row_index++) {
         for (let col_index = 0; col_index < data.width; col_index++) {
             const cell = document.getElementById('cell-row-' + row_index + '-col-' + col_index);

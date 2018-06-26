@@ -76,8 +76,8 @@ public class CSpielebrettController {
         ISpieleBrett brett=ESpiele.INSTANCE.apply(p_name);
         CHuman player = new CHuman();
         CRandomBot bot = new CRandomBot();
-        player.accept(brett, p_x, p_y);
-        bot.accept(brett);
+        //player.accept(brett, p_x, p_y);
+        //bot.accept(brett);
         System.out.println(brett);
         return brett;
     }
