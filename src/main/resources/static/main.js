@@ -8,7 +8,7 @@ var width = 3;
 var height = 3;
 
 function requestJSON(url, callback) {
-    console.log(url)
+    //console.log(url)
     fetch(url)
         .then(r => r.json())
         .then(function (data) {
@@ -21,6 +21,7 @@ function updateGame(data) {
     for (let row_index = 0; row_index < data.height; row_index++) {
         for (let col_index = 0; col_index < data.width; col_index++) {
             const cell = document.getElementById('cell-row-' + row_index + '-col-' + col_index);
+            consloe.log(data)
             switch (data.elements[row_index][col_index]) {
                 case 'x':
                     cell.innerHTML = '<img src="cross.svg">';
@@ -38,8 +39,8 @@ function updateGame(data) {
     }
 }
 
-/*
-function checkForUpdate(brett) {
+
+function checkForUpdate(data) {
     requestJSON("/spiele/list", function (data) {
         if (data.includes(name)) {
             requestJSON('/spielebrett/' + name + '/show', updateGame)
@@ -49,7 +50,7 @@ function checkForUpdate(brett) {
         }
     })
 }
-*/
+
 
 
 /**
@@ -70,7 +71,7 @@ function tableCreate(width, height) {
             const col = row.insertCell(col_index);
             col.id = 'cell-row-' + row_index + '-col-' + col_index;
             //  col.addEventListener("click",  ()= > console.log('Clicked r:' + row_index + ' c:' + col_index))
-            col.addEventListener("click", () => requestJSON("/spielebrett/" + name + "/set-mark/" + row_index + "/" + col_index, updateGame))
+            col.addEventListener("click", () => requestJSON("/spielebrett/" + name + "/set-mark/" + row_index + "/" + col_index, checkForUpdate))
         }
     }
 }
@@ -84,10 +85,10 @@ function startGame(data) {
     if (data && data.width && data.height) {
         notifier.success('Ein Spiel wurde erfolgreich erstellt')
         tableCreate(width, height);
+        pollTimer = window.setInterval(checkForUpdate, 500);
     } else {
         notifier.alert('Das Spiel konnte nicht erstellt werden.')
     }
-    //pollTimer = window.setInterval(checkForUpdate, 500);
 }
 
 //const name='Spiel-0'
