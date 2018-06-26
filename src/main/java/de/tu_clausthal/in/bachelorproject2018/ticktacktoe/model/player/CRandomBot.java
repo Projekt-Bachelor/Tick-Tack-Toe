@@ -19,7 +19,6 @@ public class CRandomBot extends IBasePlayer
     /**
      * Konstruktor
      *
-     * @param p_value Item (Kreuz / Kreis), das durch den Spieler verwendet wird
      */
     public CRandomBot()
     {

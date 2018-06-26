@@ -13,27 +13,26 @@ public final class CHuman extends IBasePlayer
     /**
      * Konstruktor, der nur in abgeleiteten Klassen verwendet werden kann
      *
-     * @param p_name Name des Spielers
-     * @param p_value Item (Kreuz / Kreis), das durch den Spieler verwendet wird
      */
-    public CHuman( final String p_name, final EItem p_value )
+    public CHuman()
     {
-        super( p_name, p_value );
+        super( "Human", EItem.KREUZ );
     }
 
     @Override
     public void accept( final ISpieleBrett p_brett )
     {
-        /*
         // @todo das muss über den Websocket oder REST Class gefüllt werden
-        int x;
-        int y;
+    }
+
+    public void accept(final ISpieleBrett p_brett, int x, int y )
+    {
+        // @todo das muss über den Websocket oder REST Class gefüllt werden
         boolean[] set_won_draw;
         set_won_draw = p_brett.set( m_value.apply( x, y ) );
         while ( !set_won_draw[0] ) {
             set_won_draw = p_brett.set( m_value.apply( x, y ) );
         }
-        */
     }
 
 }

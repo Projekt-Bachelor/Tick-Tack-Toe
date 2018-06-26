@@ -2,10 +2,7 @@ package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.controller;
 
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.ESpiele;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.ISpieleBrett;
-import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.EItem;
-import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.CMediumBot;
-import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.CMinMaxBot;
-import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.CRandomBot;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.*;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,20 +44,19 @@ public class CSpielebrettController {
             case "einfach":
                 //gameName(name_counter, name);
                 //final EItem p_value = EItem.KREIS;
-                ESpiele.INSTANCE.generate(name, p_width, p_height);
-                new CRandomBot(EItem.KREIS);
+                new CRandomBot();
                 System.out.println("Einfach wurde ausgewählt.");
                 break;
 
             case "mittel":
                 //gameName(name_counter, name);
-                new CMediumBot(EItem.KREIS);
+                new CMediumBot();
                 System.out.println("Mittel wurde ausgewählt.");
                 break;
 
             case "schwer":
                 //gameName(name_counter, name);
-                new CMinMaxBot(EItem.KREIS);
+                new CMinMaxBot();
                 System.out.println("Schwer wurde ausgewählt.");
                 break;
 
@@ -83,8 +79,12 @@ public class CSpielebrettController {
     }
 
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
-    public ESpiele set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
-        return ESpiele.INSTANCE.set(p_name, p_x, p_y);
+    public ISpieleBrett set(@PathVariable("name") final ISpieleBrett p_brett, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
+        CHuman player = new CHuman();
+        CRandomBot bot = new CRandomBot();
+        player.accept(p_brett, p_x, p_y);
+        bot.accept(p_brett);
+        return p_brett;
     }
 
 
