@@ -18,6 +18,18 @@ public final class CItem implements IItem
      */
     private final EItem m_item;
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public EItem getM_item() {
+        return m_item;
+    }
+
     /**
      * Konstruktor
      *
@@ -43,8 +55,6 @@ public final class CItem implements IItem
     {
         return y;
     }
-
-    public final EItem item() { return m_item; }
 
 
 }

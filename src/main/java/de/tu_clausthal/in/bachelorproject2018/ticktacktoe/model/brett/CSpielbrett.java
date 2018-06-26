@@ -140,7 +140,7 @@ public final class CSpielbrett implements ISpieleBrett
             ESpiele.INSTANCE.remove(this);
         }
     */
-        return m_elements[p_item.x()][p_item.y()].compareAndSet( null, p_item );
+        return m_elements[p_item.getX()][p_item.getY()].compareAndSet( null, p_item );
     }
 
     public boolean checkWin() {
@@ -166,7 +166,7 @@ public final class CSpielbrett implements ISpieleBrett
             won = false;
         }
 
-        if (won == true) {
+        if (won) {
             ESpiele.INSTANCE.remove(this);
         }
 
@@ -183,13 +183,19 @@ public final class CSpielbrett implements ISpieleBrett
                 }
             }
         }
+
+        if (draw) {
+            ESpiele.INSTANCE.remove(this);
+        }
+
         return draw;
     }
 
     public boolean hasEqualValue(AtomicReference<IItem> element1, AtomicReference<IItem> element2, AtomicReference<IItem> element3)
     {
+
         if( element1.get() != null && element2.get() != null && element3.get() != null) {
-            if (element1.get().item() == element2.get().item() && element1.get().item() == element3.get().item()) {
+            if (element1.get().getM_item() == element2.get().getM_item() && element1.get().getM_item() == element3.get().getM_item()) {
                 return true;
             } else {
                 return false;
