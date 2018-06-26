@@ -22,8 +22,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/spielebrett")
 public class CSpielebrettController {
 
-    int name_counter;
-    String name = "Spiel-";
+
+    String name= "Spiel-0";
     int p_width = 3;
     int p_height = 3;
 
@@ -34,9 +34,40 @@ public class CSpielebrettController {
      *               Überarbeitung um den Typ mitzübergeben
      */
     //    @RequestMapping(value = "/create/{name}/{width}/{height}")
-    @RequestMapping(value = "/create/{name}/{width}/{height}")
-    public ISpieleBrett create(@PathVariable("name") final String p_name, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
+    @RequestMapping(value = "/create/{name}/{type}/{width}/{height}")
+    public ISpieleBrett create(@PathVariable("name") final String p_name, @PathVariable("type") final String p_type, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
         ESpiele.INSTANCE.generate(p_name, p_width, p_height);
+
+        switch (p_type) {
+            case "PvP":
+                //gameName(name_counter, name);
+                System.out.println("PvP wurde ausgewählt.");
+                break;
+
+            case "einfach":
+                //gameName(name_counter, name);
+                //final EItem p_value = EItem.KREIS;
+                ESpiele.INSTANCE.generate(name, p_width, p_height);
+                new CRandomBot(EItem.KREIS);
+                System.out.println("Einfach wurde ausgewählt.");
+                break;
+
+            case "mittel":
+                //gameName(name_counter, name);
+                new CMediumBot(EItem.KREIS);
+                System.out.println("Mittel wurde ausgewählt.");
+                break;
+
+            case "schwer":
+                //gameName(name_counter, name);
+                new CMinMaxBot(EItem.KREIS);
+                System.out.println("Schwer wurde ausgewählt.");
+                break;
+
+            default:
+                //ESpiele.INSTANCE.remove(p_brett);
+                System.out.println("Es wurde kein gültiger Bot ausgewählt... Fehler bei der Zuweisung!");
+        }
         return ESpiele.INSTANCE.apply(p_name);
     }
 
@@ -57,7 +88,7 @@ public class CSpielebrettController {
     }
 
 
-    public String gameName(int name_counter, String name) {
+    /*public String gameName(int name_counter, String name) {
 
         if (name_counter == nextInt(name_counter)) {
             name_counter = 0;
@@ -70,43 +101,14 @@ public class CSpielebrettController {
         }
         return name;
     }
+    */
 
     /**
      * ruft den Gegner auf
      */
     @RequestMapping(value = "/{name}/{type}")
     public String ChooseMod(@PathVariable("name") final String p_name, @PathVariable("typ") final String type) {
-        switch (type) {
-            case "PvP":
-                gameName(name_counter, name);
-                System.out.println("PvP wurde ausgewählt.");
-                break;
 
-            case "einfach":
-                gameName(name_counter, name);
-                //final EItem p_value = EItem.KREIS;
-                ESpiele.INSTANCE.generate(name, p_width, p_height);
-                new CRandomBot(EItem.KREIS);
-
-                System.out.println("Einfach wurde ausgewählt.");
-                break;
-
-            case "mittel":
-                gameName(name_counter, name);
-                new CMediumBot(EItem.KREIS);
-                System.out.println("Mittel wurde ausgewählt.");
-                break;
-
-            case "schwer":
-                gameName(name_counter, name);
-                new CMinMaxBot(EItem.KREIS);
-                System.out.println("Schwer wurde ausgewählt.");
-                break;
-
-            default:
-                //ESpiele.INSTANCE.remove(p_brett);
-                System.out.println("Es wurde kein gültiger Bot ausgewählt... Fehler bei der Zuweisung!");
-        }
 
         return p_name;
     }
