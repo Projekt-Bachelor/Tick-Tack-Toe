@@ -14,29 +14,35 @@ function requestJSON(url, callback) {
         .then(function (data) {
             callback(data)
         })
-        .catch(e => console.log('Could not process request ' + url + '\n' + e))
+    //.catch(e => console.log('Could not process request ' + url + '\n' + e))
 }
 
 function updateGame(data) {
     for (let row_index = 0; row_index < data.height; row_index++) {
         for (let col_index = 0; col_index < data.width; col_index++) {
             const cell = document.getElementById('cell-row-' + row_index + '-col-' + col_index);
-            consloe.log(data)
-            switch (data.elements[row_index][col_index]) {
-                case 'x':
-                    cell.innerHTML = '<img src="cross.svg">';
-                    break;
+            console.log(data)
+            if (data.elements[row_index][col_index] !== null) {
+                switch (data.elements[row_index][col_index].m_item) {
+                    case "KREUZ":
+                        cell.innerHTML = '<img src="cross.svg">';
+                        break;
 
-                case 'o':
-                    cell.innerHTML = '<img src="circle.svg">';
-                    break;
+                    case "KREIS":
+                        cell.innerHTML = '<img src="circle.svg">';
+                        break;
 
-                case null:
-                    cell.innerHTML = '';
-                    break;
+                    case null:
+                        cell.innerHTML = '<img src="empty.svg">';
+                        break;
+                }
             }
+
+            else
+                cell.innerHTML ='<img src="empty.svg">';
+            }
+
         }
-    }
 }
 
 
@@ -52,7 +58,6 @@ function checkForUpdate(data) {
 }
 
 
-
 /**
  * Diese Funktion erstellt eine Tabelle nach den param.
  * @param width
@@ -60,8 +65,7 @@ function checkForUpdate(data) {
  */
 function tableCreate(width, height) {
     const table = document.getElementById('game-table');
-    while(table.hasChildNodes())
-    {
+    while (table.hasChildNodes()) {
         table.removeChild(table.firstChild)
     }
 
