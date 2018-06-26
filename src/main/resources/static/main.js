@@ -33,13 +33,13 @@ function updateGame(data) {
                         break;
 
                     case null:
-                        cell.innerHTML = '';
+                        cell.innerHTML = '<img src="empty.svg">';
                         break;
                 }
             }
 
             else
-                cell.innerHTML = '';
+                cell.innerHTML ='<img src="empty.svg">';
             }
 
         }
