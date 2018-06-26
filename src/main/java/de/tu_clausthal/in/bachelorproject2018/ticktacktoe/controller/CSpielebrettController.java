@@ -19,11 +19,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/spielebrett")
 public class CSpielebrettController {
 
-
-    String name= "Spiel-0";
-    int p_width = 3;
-    int p_height = 3;
-
     /**
      * erzeugt einen neues Brett
      *
@@ -32,9 +27,9 @@ public class CSpielebrettController {
      */
     //    @RequestMapping(value = "/create/{name}/{width}/{height}")
     @RequestMapping(value = "/create/{name}/{type}/{width}/{height}")
-    public ISpieleBrett create(@PathVariable("name") final String p_name, @PathVariable("type") final String p_type, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
+    public ISpieleBrett  create(@PathVariable("name") final String p_name, @PathVariable("type") final String p_type, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
         ESpiele.INSTANCE.generate(p_name, p_width, p_height);
-
+        System.out.println("Test");
         switch (p_type) {
             case "PvP":
                 //gameName(name_counter, name);
@@ -61,7 +56,6 @@ public class CSpielebrettController {
                 break;
 
             default:
-                //ESpiele.INSTANCE.remove(p_brett);
                 System.out.println("Es wurde kein gültiger Bot ausgewählt... Fehler bei der Zuweisung!");
         }
         return ESpiele.INSTANCE.apply(p_name);
@@ -79,37 +73,13 @@ public class CSpielebrettController {
     }
 
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
-    public ISpieleBrett set(@PathVariable("name") final ISpieleBrett p_brett, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
+    public ISpieleBrett set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
+        ISpieleBrett brett=ESpiele.INSTANCE.apply(p_name);
         CHuman player = new CHuman();
         CRandomBot bot = new CRandomBot();
-        player.accept(p_brett, p_x, p_y);
-        bot.accept(p_brett);
-        return p_brett;
-    }
-
-
-    /*public String gameName(int name_counter, String name) {
-
-        if (name_counter == nextInt(name_counter)) {
-            name_counter = 0;
-            name = "Spiel-" + name_counter;
-            System.out.println(name);
-        } else {
-            name_counter++;
-            name = "Spiel-" + name_counter;
-            System.out.println(name);
-        }
-        return name;
-    }
-    */
-
-    /**
-     * ruft den Gegner auf
-     */
-    @RequestMapping(value = "/{name}/{type}")
-    public String ChooseMod(@PathVariable("name") final String p_name, @PathVariable("typ") final String type) {
-
-
-        return p_name;
+        player.accept(brett, p_x, p_y);
+        bot.accept(brett);
+        System.out.println(brett);
+        return brett;
     }
 }

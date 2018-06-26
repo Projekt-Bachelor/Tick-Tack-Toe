@@ -34,7 +34,7 @@ public enum ESpiele implements Function<String, ISpieleBrett>, Supplier<Set<Stri
      */
     public void generate(final String p_name, final int p_width, final int p_height) {
         if (m_bretter.containsKey(p_name))
-            throw new RuntimeException(MessageFormat.format("Spiel [{0}] existiert bereits", p_name));
+            m_bretter.remove(p_name);
 
         m_bretter.put(p_name, new CSpielbrett(p_name, p_width, p_height));
     }
