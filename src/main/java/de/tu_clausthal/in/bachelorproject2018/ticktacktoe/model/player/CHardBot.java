@@ -5,14 +5,10 @@ import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.EItem;
 
 import java.util.Random;
 
-
-/**
- * Klasse des Medium Bots
- */
-public class CMediumBot extends IBasePlayer
+public class CHardBot extends IBasePlayer
 {
     /**
-     * Zufallsgenerator für den Medium Bot
+     * Zufallsgenerator für den Hard Bot
      */
     private final Random m_random = new Random();
     private final CRandomBot m_RandomBot = new CRandomBot();
@@ -20,16 +16,14 @@ public class CMediumBot extends IBasePlayer
 
     /**
      * Konstruktor
-     *
-     * @param p_value Item (Kreuz / Kreis), das durch den Spieler verwendet wird
      */
-    public CMediumBot() { super( "Medium-Bot", EItem.KREIS ); }
+    public CHardBot() { super( "Hard-Bot", EItem.KREIS ); }
 
     @Override
     public void accept(ISpieleBrett p_brett) {
         int i;
         i = m_random.nextInt(11);
-        if(i <= 6){
+        if(i <= 8){
             m_MinMaxBot.accept(p_brett);
         }
         else{
