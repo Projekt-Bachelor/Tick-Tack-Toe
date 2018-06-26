@@ -106,11 +106,15 @@ public class CSpielebrettController {
         //player turn
         player.accept(brett, p_x, p_y);
         won = brett.checkWin();
-        draw = brett.checkDraw();
+        if(won) {
+            draw = brett.checkDraw();
+        }
         //bot turn
         bot.accept(brett);
         won = brett.checkWin();
-        draw = brett.checkDraw();
+        if(won) {
+            draw = brett.checkDraw();
+        }
         //System.out.println(brett);
         return brett.getM_elements();
     }
