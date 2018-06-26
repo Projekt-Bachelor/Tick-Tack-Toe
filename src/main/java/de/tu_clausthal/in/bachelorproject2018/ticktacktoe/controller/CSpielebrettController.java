@@ -81,9 +81,11 @@ public class CSpielebrettController {
         ISpieleBrett brett = ESpiele.INSTANCE.apply(p_name);
         CHuman player = new CHuman();
         CRandomBot bot = new CRandomBot();
+        //player turn
         player.accept(brett, p_x, p_y);
         won = brett.checkWin();
         draw = brett.checkDraw();
+        //bot turn
         bot.accept(brett);
         won = brett.checkWin();
         draw = brett.checkDraw();
