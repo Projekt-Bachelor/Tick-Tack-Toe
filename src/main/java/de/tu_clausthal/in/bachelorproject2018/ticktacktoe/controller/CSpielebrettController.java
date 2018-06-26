@@ -54,7 +54,6 @@ public class CSpielebrettController {
                 new CMinMaxBot();
                 System.out.println("Schwer wurde ausgewählt.");
                 break;
-
             default:
                 System.out.println("Es wurde kein gültiger Bot ausgewählt... Fehler bei der Zuweisung!");
         }
