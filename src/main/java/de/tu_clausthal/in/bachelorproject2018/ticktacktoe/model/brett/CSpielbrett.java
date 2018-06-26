@@ -154,15 +154,18 @@ public final class CSpielbrett implements ISpieleBrett
             won = true;
         } else if (hasEqualValue(m_elements[0][0], m_elements[0][1], m_elements[0][2])) {
             won = true;
+        } else if (hasEqualValue(m_elements[1][0], m_elements[1][1], m_elements[1][2])) {
+            won = true;
         } else if (hasEqualValue(m_elements[2][0], m_elements[2][1], m_elements[2][2])) {
             won = true;
         } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
             won = true;
-        } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
+        } else if (hasEqualValue(m_elements[0][1], m_elements[1][1], m_elements[2][1])) {
             won = true;
-        } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
+        } else if (hasEqualValue(m_elements[0][2], m_elements[1][2], m_elements[2][2])) {
             won = true;
-        } else {
+        }
+        else {
             won = false;
         }
 
