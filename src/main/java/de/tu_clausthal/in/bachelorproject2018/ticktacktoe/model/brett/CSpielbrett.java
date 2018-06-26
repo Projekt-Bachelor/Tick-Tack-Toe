@@ -176,8 +176,12 @@ public final class CSpielbrett implements ISpieleBrett
 
     public boolean hasEqualValue(AtomicReference<IItem> element1, AtomicReference<IItem> element2, AtomicReference<IItem> element3)
     {
-        if(element1.get().item() == element2.get().item() && element1.get().item() == element3.get().item()) {
-            return true;
+        if( element1.get() != null && element2.get() != null && element3.get() != null) {
+            if (element1.get().item() == element2.get().item() && element1.get().item() == element3.get().item()) {
+                return true;
+            } else {
+                return false;
+            }
         }
         else{
             return false;
