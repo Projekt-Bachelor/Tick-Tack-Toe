@@ -51,6 +51,6 @@ public interface ISpieleBrett
      * @param p_item
      * @return [konnte gesetzt werden, gewonnen?, unentschieden?]
      */
-    boolean[] set(final IItem p_item );
+    boolean set(final IItem p_item );
 
 }

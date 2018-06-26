@@ -73,7 +73,7 @@ public class CSpielebrettController {
 
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
     public ISpieleBrett set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
-        ISpieleBrett brett=ESpiele.INSTANCE.apply(p_name);
+        ISpieleBrett brett = ESpiele.INSTANCE.apply(p_name);
         CHuman player = new CHuman();
         CRandomBot bot = new CRandomBot();
         player.accept(brett, p_x, p_y);

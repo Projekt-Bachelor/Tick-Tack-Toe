@@ -116,8 +116,9 @@ public final class CSpielbrett implements ISpieleBrett
 
 
     @Override
-    public boolean[] set(final IItem p_item )
+    public boolean set(final IItem p_item )
     {
+        /*
         boolean[] set_won_draw = {false, false, false};
         set_won_draw[0] = m_elements[p_item.x()][p_item.y()].compareAndSet( null, p_item );
 
@@ -133,8 +134,8 @@ public final class CSpielbrett implements ISpieleBrett
         if((set_won_draw[1] == true || set_won_draw[2] == true)){
             ESpiele.INSTANCE.remove(this);
         }
-
-        return set_won_draw;
+    */
+        return m_elements[p_item.x()][p_item.y()].compareAndSet( null, p_item );
     }
 
     public boolean won(final IItem p_item, AtomicReference<IItem>[][] elements)
@@ -187,5 +188,4 @@ public final class CSpielbrett implements ISpieleBrett
             return false;
         }
     }
-
 }
