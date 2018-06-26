@@ -25,9 +25,9 @@ public final class CHuman extends IBasePlayer
         // @todo das muss über den Websocket oder REST Class gefüllt werden
     }
 
-    public void accept(final ISpieleBrett p_brett, int x, int y )
+    public boolean accept(final ISpieleBrett p_brett, int x, int y )
     {
-        boolean _ = p_brett.set(m_value.apply(x, y));
+        return p_brett.set(m_value.apply(x, y));
     }
 
 }

@@ -42,19 +42,16 @@ public class CSpielebrettController {
             case "einfach":
                 //gameName(name_counter, name);
                 //final EItem p_value = EItem.KREIS;
-                new CRandomBot();
                 System.out.println("Einfach wurde ausgewählt.");
                 break;
 
             case "mittel":
                 //gameName(name_counter, name);
-                new CMediumBot();
                 System.out.println("Mittel wurde ausgewählt.");
                 break;
 
             case "schwer":
                 //gameName(name_counter, name);
-                new CMinMaxBot();
                 System.out.println("Schwer wurde ausgewählt.");
                 break;
             default:
@@ -104,7 +101,9 @@ public class CSpielebrettController {
         CRandomBot bot = new CRandomBot();
         CHuman player = new CHuman();
         //player turn
-        player.accept(brett, p_x, p_y);
+        if(!player.accept(brett, p_x, p_y)){
+            return brett.getM_elements();
+        }
         won = brett.checkWin();
         if(won) {
             draw = brett.checkDraw();
