@@ -72,7 +72,7 @@ public class CSpielebrettController {
     }
 
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
-    public AtomicReference<IItem>[][] set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y/*, int difficulty*/) {
+    public CSetReturn set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y/*, int difficulty*/) {
         boolean won = false;
         boolean draw = false;
         AtomicReference<IItem>[][] elements;
@@ -103,7 +103,7 @@ public class CSpielebrettController {
         CHuman player = new CHuman();
         //player turn
         if(!player.accept(brett, p_x, p_y)){
-            return brett.getM_elements();
+            return new CSetReturn(brett.getM_elements(), won, draw);
         }
         won = brett.checkWin();
         if(!won) {
@@ -117,7 +117,9 @@ public class CSpielebrettController {
                 draw = brett.checkDraw();
             }
         }
+        CSetReturn a = new CSetReturn(brett.getM_elements(), won, draw);
+        System.out.println(a.isWon());
+        return a;
 
-        return brett.getM_elements();
     }
 }
