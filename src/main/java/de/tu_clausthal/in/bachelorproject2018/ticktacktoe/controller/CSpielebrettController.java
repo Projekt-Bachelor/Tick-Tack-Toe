@@ -73,8 +73,9 @@ public class CSpielebrettController {
 
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
     public AtomicReference<IItem>[][] set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y/*, int difficulty*/) {
-        boolean won;
-        boolean draw;
+        boolean won = false;
+        boolean draw = false;
+        AtomicReference<IItem>[][] elements;
         ISpieleBrett brett = ESpiele.INSTANCE.apply(p_name);
 
         /*
@@ -105,16 +106,18 @@ public class CSpielebrettController {
             return brett.getM_elements();
         }
         won = brett.checkWin();
-        if(won) {
+        if(!won) {
             draw = brett.checkDraw();
         }
-        //bot turn
-        bot.accept(brett);
-        won = brett.checkWin();
-        if(won) {
-            draw = brett.checkDraw();
+        if(!(won || draw)) {
+            //bot turn
+            bot.accept(brett);
+            won = brett.checkWin();
+            if (!won) {
+                draw = brett.checkDraw();
+            }
         }
-        //System.out.println(brett);
+
         return brett.getM_elements();
     }
 }

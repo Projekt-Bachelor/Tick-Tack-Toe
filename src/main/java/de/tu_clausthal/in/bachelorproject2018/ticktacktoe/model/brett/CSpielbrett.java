@@ -169,10 +169,9 @@ public final class CSpielbrett implements ISpieleBrett
             won = false;
         }
 
-        if (won) {
+        if(won){
             ESpiele.INSTANCE.remove(this);
         }
-
         return won;
     }
 
@@ -186,11 +185,9 @@ public final class CSpielbrett implements ISpieleBrett
                 }
             }
         }
-
-        if (draw) {
+        if(draw){
             ESpiele.INSTANCE.remove(this);
         }
-
         return draw;
     }
 
