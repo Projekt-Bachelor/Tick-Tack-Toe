@@ -55,7 +55,7 @@ public interface ISpieleBrett
      */
     boolean set(final IItem p_item );
 
-    boolean checkWin();
+    IItem checkWin();
 
     boolean checkDraw();
 

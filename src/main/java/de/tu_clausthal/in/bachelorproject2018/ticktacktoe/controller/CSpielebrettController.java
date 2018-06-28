@@ -72,11 +72,10 @@ public class CSpielebrettController {
     }
 
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
-    public CSetReturn set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y/*, int difficulty*/) {
-        boolean won = false;
+    public ISpieleBrett set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y/*, int difficulty*/) {
+        IItem won;
         boolean draw = false;
         AtomicReference<IItem>[][] elements;
-        ISpieleBrett brett = ESpiele.INSTANCE.apply(p_name);
 
         /*
         switch(difficulty){
@@ -102,24 +101,22 @@ public class CSpielebrettController {
         CRandomBot bot = new CRandomBot();
         CHuman player = new CHuman();
         //player turn
-        if(!player.accept(brett, p_x, p_y)){
-            return new CSetReturn(brett.getM_elements(), won, draw);
+        if(!player.accept(ESpiele.INSTANCE.apply(p_name), p_x, p_y)){
+            return ESpiele.INSTANCE.apply(p_name);
         }
-        won = brett.checkWin();
-        if(!won) {
-            draw = brett.checkDraw();
+        won = ESpiele.INSTANCE.apply(p_name).checkWin();
+        if(won == null) {
+            draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
         }
-        if(!(won || draw)) {
+        if(won == null || draw == false) {
             //bot turn
-            bot.accept(brett);
-            won = brett.checkWin();
-            if (!won) {
-                draw = brett.checkDraw();
+            bot.accept(ESpiele.INSTANCE.apply(p_name));
+            won = ESpiele.INSTANCE.apply(p_name).checkWin();
+            if (won == null) {
+                draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
             }
         }
-        CSetReturn a = new CSetReturn(brett.getM_elements(), won, draw);
-        System.out.println(a.isWon());
-        return a;
+        return ESpiele.INSTANCE.apply(p_name);
 
     }
 }

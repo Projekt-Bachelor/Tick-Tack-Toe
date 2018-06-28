@@ -2,6 +2,7 @@ package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.ESpiele;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.EItem;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.IItem;
 
 import java.util.Objects;
@@ -32,6 +33,18 @@ public final class CSpielbrett implements ISpieleBrett
      */
     @JsonProperty( "name" )
     private final String m_name;
+    /**
+     *
+     */
+    @JsonProperty( "winner" )
+    private final EItem m_winner;
+
+    /**
+     *
+     */
+    @JsonProperty( "draw" )
+    private final boolean m_draw;
+
 
     public AtomicReference<IItem>[][] getM_elements() {
         return m_elements;
@@ -64,6 +77,9 @@ public final class CSpielbrett implements ISpieleBrett
         m_name = p_name;
         m_width = p_width;
         m_height = p_height;
+        m_winner = null;
+        m_draw = false;
+
 
         // erzeuge Array (die Zeilen geben die Y Koordinate an, die Spalten die X Koordinate)
         m_elements = new AtomicReference[m_height][m_width];
@@ -143,33 +159,33 @@ public final class CSpielbrett implements ISpieleBrett
         return m_elements[p_item.getX()][p_item.getY()].compareAndSet( null, p_item );
     }
 
-    public boolean checkWin() {
-        boolean won;
+    public IItem checkWin() {
+        IItem won;
 
         if (hasEqualValue(m_elements[0][0], m_elements[1][1], m_elements[2][2])) {
-            won = true;
+            won = m_elements[0][0].get();
         } else if (hasEqualValue(m_elements[2][0], m_elements[1][1], m_elements[0][2])) {
-            won = true;
+            won = m_elements[2][0].get();
         } else if (hasEqualValue(m_elements[1][0], m_elements[1][1], m_elements[1][2])) {
-            won = true;
+            won = m_elements[1][0].get();
         } else if (hasEqualValue(m_elements[0][0], m_elements[0][1], m_elements[0][2])) {
-            won = true;
+            won = m_elements[0][0].get();
         } else if (hasEqualValue(m_elements[1][0], m_elements[1][1], m_elements[1][2])) {
-            won = true;
+            won = m_elements[1][0].get();
         } else if (hasEqualValue(m_elements[2][0], m_elements[2][1], m_elements[2][2])) {
-            won = true;
+            won = m_elements[2][0].get();
         } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
-            won = true;
+            won = m_elements[0][0].get();
         } else if (hasEqualValue(m_elements[0][1], m_elements[1][1], m_elements[2][1])) {
-            won = true;
+            won = m_elements[0][1].get();
         } else if (hasEqualValue(m_elements[0][2], m_elements[1][2], m_elements[2][2])) {
-            won = true;
+            won = m_elements[0][2].get();
         }
         else {
-            won = false;
+            won = null;
         }
 
-        if(won){
+        if(won != null){
             ESpiele.INSTANCE.remove(this);
         }
         return won;
