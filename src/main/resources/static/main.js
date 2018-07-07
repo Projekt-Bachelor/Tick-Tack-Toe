@@ -2,7 +2,6 @@
 
 const notifier = new AWN();
 
-let pollTimer;
 const name = "Spiel-0"
 var width = 3;
 var height = 3;
@@ -52,7 +51,6 @@ function checkForUpdate(data) {
             requestJSON('/spielebrett/' + name + '/show', updateGame)
         } else {
             console.log('Game ' + name + 'disappeared');
-            clearInterval(pollTimer)
         }
     })
 }
@@ -89,7 +87,6 @@ function startGame(data) {
     if (data && data.width && data.height) {
         notifier.success('Ein Spiel wurde erfolgreich erstellt')
         tableCreate(width, height);
-        pollTimer = window.setInterval(checkForUpdate, 500);
     } else {
         notifier.alert('Das Spiel konnte nicht erstellt werden.')
     }
