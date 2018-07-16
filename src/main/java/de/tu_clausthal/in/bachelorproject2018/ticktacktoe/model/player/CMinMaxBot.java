@@ -54,7 +54,7 @@ public final class CMinMaxBot extends IBasePlayer
         }
     }
 
-    public boolean hasXWon() {
+    public boolean hasOWon() {
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 1) || (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 1)) {
             return true;
         }
@@ -67,7 +67,7 @@ public final class CMinMaxBot extends IBasePlayer
         return false;
     }
 
-    public boolean hasOWon() {
+    public boolean hasXWon() {
         if ((board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 2) || (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 2)) {
             return true;
         }
@@ -99,8 +99,8 @@ public final class CMinMaxBot extends IBasePlayer
     }
 
     public int minimax(int depth, int turn) {
-        if (hasXWon()) return +10;
-        if (hasOWon()) return -10;
+        if (hasOWon()) return +10;
+        if (hasXWon()) return -10;
 
         List<int[]> pointsAvailable = getAvailableStates();
         if (pointsAvailable.isEmpty()) return 0;
