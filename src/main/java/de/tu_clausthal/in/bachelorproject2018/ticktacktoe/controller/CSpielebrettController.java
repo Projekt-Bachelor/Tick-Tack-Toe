@@ -97,8 +97,7 @@ public class CSpielebrettController {
                 System.out.println("error");
         }
         */
-
-        CRandomBot bot = new CRandomBot();
+        CMinMaxBot bot = new CMinMaxBot();
         CHuman player = new CHuman();
         //player turn
         if(!player.accept(ESpiele.INSTANCE.apply(p_name), p_x, p_y)){
