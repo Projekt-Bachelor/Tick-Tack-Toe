@@ -45,6 +45,15 @@ public final class CSpielbrett implements ISpieleBrett
     @JsonProperty( "draw" )
     private final boolean m_draw;
 
+    /**
+     *
+     */
+    @JsonProperty( "difficulty" )
+    private final int m_difficulty;
+
+    public int getM_difficulty() {
+        return m_difficulty;
+    }
 
     public AtomicReference<IItem>[][] getM_elements() {
         return m_elements;
@@ -72,13 +81,14 @@ public final class CSpielbrett implements ISpieleBrett
      * @param p_height Anzahl der Zeilen
      */
     @SuppressWarnings( {"unchecked", "rawtypes"} )
-    public CSpielbrett( final String p_name, final int p_width, final int p_height )
+    public CSpielbrett( final String p_name, final int p_width, final int p_height, final int p_difficulty )
     {
         m_name = p_name;
         m_width = p_width;
         m_height = p_height;
         m_winner = null;
         m_draw = false;
+        m_difficulty = p_difficulty;
 
 
         // erzeuge Array (die Zeilen geben die Y Koordinate an, die Spalten die X Koordinate)

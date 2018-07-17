@@ -60,4 +60,6 @@ public interface ISpieleBrett
     boolean checkDraw();
 
     AtomicReference<IItem>[][] getM_elements();
+
+    int getM_difficulty();
 }

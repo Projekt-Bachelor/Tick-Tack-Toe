@@ -32,11 +32,11 @@ public enum ESpiele implements Function<String, ISpieleBrett>, Supplier<Set<Stri
      * @param p_width  Breite des Bretts
      * @param p_height Höhe des Bretts
      */
-    public void generate(final String p_name, final int p_width, final int p_height) {
+    public void generate(final String p_name, final int p_width, final int p_height, final int p_difficulty) {
         if (m_bretter.containsKey(p_name))
             m_bretter.remove(p_name);
 
-        m_bretter.put(p_name, new CSpielbrett(p_name, p_width, p_height));
+        m_bretter.put(p_name, new CSpielbrett(p_name, p_width, p_height, p_difficulty));
     }
 
     /**
