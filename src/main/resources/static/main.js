@@ -43,10 +43,12 @@ function updateGame(data) {
         }
     }
     if (data.winner == "KREIS") {
-        notifier.success('Leider hast du verloren. Versuch es doch einnfach nochmal!')
+        //notifier.success('Leider hast du verloren. Versuch es doch einnfach nochmal!')
+        notifier.modal('<h2>Leider hast du verloren.</h2><p>Versuch es doch einnfach nochmal!</p>', 'custom-class-name')
     }
     else if (data.winner == "KREUZ") {
-        notifier.success('Yuhuu! Du hast gewonnen!')
+        //notifier.success('Yuhuu! Du hast gewonnen!')
+        notifier.modal('<h2>Yuhuu!</h2><p>Du hast gewonnen!</p>', 'custom-class-name')
     }
 
 }

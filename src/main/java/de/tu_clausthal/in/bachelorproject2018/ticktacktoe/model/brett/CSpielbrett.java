@@ -196,7 +196,8 @@ public final class CSpielbrett implements ISpieleBrett
         }
 
         if(won != null){
-            ESpiele.INSTANCE.remove(this);
+            System.out.println("erkannt");
+            //ESpiele.INSTANCE.remove(this);
         }
         return won;
     }
