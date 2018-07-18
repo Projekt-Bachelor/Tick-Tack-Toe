@@ -17,6 +17,7 @@ function requestJSON(url, callback) {
 }
 
 function updateGame(data) {
+    //console.log(data)
     for (let row_index = 0; row_index < data.height; row_index++) {
         for (let col_index = 0; col_index < data.width; col_index++) {
             const cell = document.getElementById('cell-row-' + row_index + '-col-' + col_index);
@@ -38,10 +39,16 @@ function updateGame(data) {
             }
 
             else
-                cell.innerHTML ='<img src="empty.svg">';
-            }
-
+                cell.innerHTML = '<img src="empty.svg">';
         }
+    }
+    if (data.winner == "KREIS") {
+        notifier.success('Leider hast du verloren. Versuch es doch einnfach nochmal!')
+    }
+    else if (data.winner == "KREUZ") {
+        notifier.success('Yuhuu! Du hast gewonnen!')
+    }
+
 }
 
 
@@ -50,7 +57,7 @@ function checkForUpdate(data) {
         if (data.includes(name)) {
             requestJSON('/spielebrett/' + name + '/show', updateGame)
         } else {
-            console.log('Game ' + name + 'disappeared');
+            console.log('Game ' + name + ' disappeared');
         }
     })
 }
@@ -84,7 +91,7 @@ function gameName(name) {
 
 
 function startGame(data) {
-    if (data && data.width && data.height) {
+    if (data && data.width && data.height && data.name) {
         notifier.success('Ein Spiel wurde erfolgreich erstellt')
         tableCreate(width, height);
     } else {
@@ -109,6 +116,9 @@ document.getElementById('mittel').addEventListener('click', () => requestJSON("/
 document.getElementById('schwer').addEventListener('click', () => notifier.success('Ein schweres Spiel gegen einen Bot wird gestartet.'));
 document.getElementById('schwer').addEventListener('click', () => requestJSON("/spielebrett/create/" + name + "/schwer/" + width + "/" + height, startGame));
 
+/**Spiel gegen den Bot soll gestartet werden*/
+document.getElementById('unmöglich').addEventListener('click', () => notifier.success('Ein unmögliches Spiel gegen einen Bot wird gestartet.'));
+document.getElementById('unmöglich').addEventListener('click', () => requestJSON("/spielebrett/create/" + name + "/unmöglich/" + width + "/" + height, startGame));
 
 requestJSON("/spiele/list", function (data) {
     if (data.includes(name)) {

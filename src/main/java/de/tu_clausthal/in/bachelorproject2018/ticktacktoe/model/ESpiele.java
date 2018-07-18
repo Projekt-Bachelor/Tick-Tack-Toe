@@ -45,7 +45,7 @@ public enum ESpiele implements Function<String, ISpieleBrett>, Supplier<Set<Stri
      * @param p_brett brett
      */
     public void remove(final ISpieleBrett p_brett) {
-        m_bretter.remove(p_brett.name());
+        /*m_bretter.remove(p_brett.name());*/
     }
 
     @Override
