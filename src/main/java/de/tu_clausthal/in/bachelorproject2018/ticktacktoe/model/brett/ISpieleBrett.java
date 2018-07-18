@@ -1,5 +1,6 @@
 package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett;
 
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.EItem;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.IItem;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -55,11 +56,15 @@ public interface ISpieleBrett
      */
     boolean set(final IItem p_item );
 
-    IItem checkWin();
+    EItem checkWin();
 
     boolean checkDraw();
 
     AtomicReference<IItem>[][] getM_elements();
 
     int getM_difficulty();
+
+    EItem getM_winner();
+
+    boolean isM_draw();
 }

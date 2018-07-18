@@ -2,6 +2,7 @@ package de.tu_clausthal.in.bachelorproject2018.ticktacktoe.controller;
 
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.ESpiele;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.ISpieleBrett;
+import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.EItem;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.IItem;
 import de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.*;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -81,7 +82,7 @@ public class CSpielebrettController {
     @RequestMapping(value = "/{name}/set-mark/{x}/{y}")
     public ISpieleBrett set(@PathVariable("name") final String p_name, @PathVariable("x") final int p_x, @PathVariable("y") final int p_y) {
 
-        IItem won;
+        EItem won;
         boolean draw = false;
         AtomicReference<IItem>[][] elements;
         CHuman player = new CHuman();

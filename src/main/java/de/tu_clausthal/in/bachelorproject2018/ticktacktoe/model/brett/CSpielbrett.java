@@ -33,17 +33,26 @@ public final class CSpielbrett implements ISpieleBrett
      */
     @JsonProperty( "name" )
     private final String m_name;
+
+    public EItem getM_winner() {
+        return m_winner;
+    }
+
+    public boolean isM_draw() {
+        return m_draw;
+    }
+
     /**
      *
      */
     @JsonProperty( "winner" )
-    private final EItem m_winner;
+    private EItem m_winner;
 
     /**
      *
      */
     @JsonProperty( "draw" )
-    private final boolean m_draw;
+    private boolean m_draw;
 
     /**
      *
@@ -169,37 +178,37 @@ public final class CSpielbrett implements ISpieleBrett
         return m_elements[p_item.getX()][p_item.getY()].compareAndSet( null, p_item );
     }
 
-    public IItem checkWin() {
+    public EItem checkWin() {
         IItem won;
 
         if (hasEqualValue(m_elements[0][0], m_elements[1][1], m_elements[2][2])) {
-            won = m_elements[0][0].get();
+            m_winner = m_elements[0][0].get().getM_item();
         } else if (hasEqualValue(m_elements[2][0], m_elements[1][1], m_elements[0][2])) {
-            won = m_elements[2][0].get();
+            m_winner = m_elements[2][0].get().getM_item();
         } else if (hasEqualValue(m_elements[1][0], m_elements[1][1], m_elements[1][2])) {
-            won = m_elements[1][0].get();
+            m_winner = m_elements[1][0].get().getM_item();
         } else if (hasEqualValue(m_elements[0][0], m_elements[0][1], m_elements[0][2])) {
-            won = m_elements[0][0].get();
+            m_winner = m_elements[0][0].get().getM_item();
         } else if (hasEqualValue(m_elements[1][0], m_elements[1][1], m_elements[1][2])) {
-            won = m_elements[1][0].get();
+            m_winner = m_elements[1][0].get().getM_item();
         } else if (hasEqualValue(m_elements[2][0], m_elements[2][1], m_elements[2][2])) {
-            won = m_elements[2][0].get();
+            m_winner = m_elements[2][0].get().getM_item();
         } else if (hasEqualValue(m_elements[0][0], m_elements[1][0], m_elements[2][0])) {
-            won = m_elements[0][0].get();
+            m_winner = m_elements[0][0].get().getM_item();
         } else if (hasEqualValue(m_elements[0][1], m_elements[1][1], m_elements[2][1])) {
-            won = m_elements[0][1].get();
+            m_winner = m_elements[0][1].get().getM_item();
         } else if (hasEqualValue(m_elements[0][2], m_elements[1][2], m_elements[2][2])) {
-            won = m_elements[0][2].get();
+            m_winner = m_elements[0][2].get().getM_item();
         }
         else {
-            won = null;
+            m_winner = null;
         }
 
-        if(won != null){
+        if(m_winner != null){
             System.out.println("erkannt");
             //ESpiele.INSTANCE.remove(this);
         }
-        return won;
+        return m_winner;
     }
 
     public boolean checkDraw()
@@ -208,14 +217,14 @@ public final class CSpielbrett implements ISpieleBrett
         for(AtomicReference<IItem>[] line: m_elements){
             for(AtomicReference<IItem> field: line){
                 if(field.get() == null){
-                    draw = false;
+                    m_draw = false;
                 }
             }
         }
-        if(draw){
-            ESpiele.INSTANCE.remove(this);
+        if(m_draw){
+            //ESpiele.INSTANCE.remove(this);
         }
-        return draw;
+        return m_draw;
     }
 
     private boolean hasEqualValue(AtomicReference<IItem> element1, AtomicReference<IItem> element2, AtomicReference<IItem> element3)
