@@ -53,6 +53,9 @@ function updateGame(data) {
     else if (data.draw==true){
         notifier.modal('<h1>Unentschieden!</h1><h2>Besser als nichts</h2>', 'custom-class-name')
     }
+    if (data.draw==true || data.winner == "KREUZ" || data.winner == "KREIS"){
+        deactivateGameTable();
+    }
 
 }
 
@@ -84,9 +87,17 @@ function tableCreate(width, height) {
         for (let col_index = 0; col_index < height; col_index++) {
             const col = row.insertCell(col_index);
             col.id = 'cell-row-' + row_index + '-col-' + col_index;
+            col.classList.add('game-table-field');
             //  col.addEventListener("click",  ()= > console.log('Clicked r:' + row_index + ' c:' + col_index))
             col.addEventListener("click", () => requestJSON("/spielebrett/" + name + "/set-mark/" + row_index + "/" + col_index, checkForUpdate))
         }
+    }
+}
+
+function deactivateGameTable(){
+    const cells = document.getElementsByClassName('game-table-field')
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].outerHTML = cells[i].outerHTML
     }
 }
 
