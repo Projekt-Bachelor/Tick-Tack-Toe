@@ -99,77 +99,62 @@ public class CSpielebrettController {
                     return ESpiele.INSTANCE.apply(p_name);
                 }
                 won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                if(won == null) {
-                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                }
+                draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 if(won == null || draw == false) {
                     //bot turn
                     bot1.accept(ESpiele.INSTANCE.apply(p_name));
                     won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                    if (won == null) {
-                        draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                    }
+                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 }
                 return ESpiele.INSTANCE.apply(p_name);
             case 2:
                 CMediumBot bot2 = new CMediumBot();
+
                 if(!player.accept(ESpiele.INSTANCE.apply(p_name), p_x, p_y)){
                     return ESpiele.INSTANCE.apply(p_name);
                 }
                 won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                if(won == null) {
-                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                }
+                draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 if(won == null || draw == false) {
                     //bot turn
                     bot2.accept(ESpiele.INSTANCE.apply(p_name));
                     won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                    if (won == null) {
-                        draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                    }
+                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 }
                 return ESpiele.INSTANCE.apply(p_name);
             case 3:
                 CHardBot bot3 = new CHardBot();
+
                 if(!player.accept(ESpiele.INSTANCE.apply(p_name), p_x, p_y)){
                     return ESpiele.INSTANCE.apply(p_name);
                 }
                 won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                if(won == null) {
-                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                }
+                draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 if(won == null || draw == false) {
                     //bot turn
                     bot3.accept(ESpiele.INSTANCE.apply(p_name));
                     won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                    if (won == null) {
-                        draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                    }
+                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 }
                 return ESpiele.INSTANCE.apply(p_name);
             case 4:
                 CMinMaxBot bot4 = new CMinMaxBot();
+
                 if(!player.accept(ESpiele.INSTANCE.apply(p_name), p_x, p_y)){
                     return ESpiele.INSTANCE.apply(p_name);
                 }
                 won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                if(won == null) {
-                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                }
+                draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 if(won == null || draw == false) {
                     //bot turn
                     bot4.accept(ESpiele.INSTANCE.apply(p_name));
                     won = ESpiele.INSTANCE.apply(p_name).checkWin();
-                    if (won == null) {
-                        draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
-                    }
+                    draw = ESpiele.INSTANCE.apply(p_name).checkDraw();
                 }
                 return ESpiele.INSTANCE.apply(p_name);
             default:
                 System.out.println("error");
         }
-
         return ESpiele.INSTANCE.apply(p_name);
-
     }
 }

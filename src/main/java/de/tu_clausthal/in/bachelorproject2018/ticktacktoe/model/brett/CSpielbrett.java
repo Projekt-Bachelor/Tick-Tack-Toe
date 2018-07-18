@@ -203,26 +203,18 @@ public final class CSpielbrett implements ISpieleBrett
         else {
             m_winner = null;
         }
-
-        if(m_winner != null){
-            System.out.println("erkannt");
-            //ESpiele.INSTANCE.remove(this);
-        }
         return m_winner;
     }
 
     public boolean checkDraw()
     {
-        boolean draw = true;
+        m_draw = true;
         for(AtomicReference<IItem>[] line: m_elements){
             for(AtomicReference<IItem> field: line){
                 if(field.get() == null){
                     m_draw = false;
                 }
             }
-        }
-        if(m_draw){
-            //ESpiele.INSTANCE.remove(this);
         }
         return m_draw;
     }
