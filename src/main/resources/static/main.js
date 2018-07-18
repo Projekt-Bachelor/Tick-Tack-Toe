@@ -5,7 +5,6 @@ const notifier = new AWN();
 const name = "Spiel-0"
 var width = 3;
 var height = 3;
-var counter = 0;
 function requestJSON(url, callback) {
     //console.log(url)
     fetch(url)
@@ -18,7 +17,6 @@ function requestJSON(url, callback) {
 
 function updateGame(data) {
     //console.log(data)
-    counter =0;
     for (let row_index = 0; row_index < data.height; row_index++) {
         for (let col_index = 0; col_index < data.width; col_index++) {
             const cell = document.getElementById('cell-row-' + row_index + '-col-' + col_index);
@@ -27,12 +25,10 @@ function updateGame(data) {
                 switch (data.elements[row_index][col_index].m_item) {
                     case "KREUZ":
                         cell.innerHTML = '<img src="cross.svg">';
-                        counter++;
                         break;
 
                     case "KREIS":
                         cell.innerHTML = '<img src="circle.svg">';
-                        counter++;
                         break;
 
                     case null:
@@ -52,8 +48,9 @@ function updateGame(data) {
     else if (data.winner == "KREUZ") {
         //notifier.success('Yuhuu! Du hast gewonnen!')
         notifier.modal('<h1>Yuhuu!</h1><h2>Du hast gewonnen!</h2>', 'custom-class-name')
+
     }
-    else if (counter==9 && data.winner !=="KREUZ" && data.winner !=="KREIS"){
+    else if (data.draw==true){
         notifier.modal('<h1>Unentschieden!</h1><h2>Besser als nichts</h2>', 'custom-class-name')
     }
 
