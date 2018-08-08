@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.apache.commons.lang.math.RandomUtils.nextInt;
@@ -30,42 +31,43 @@ public class CSpielebrettController {
      *               Überarbeitung um den Typ mitzübergeben
      */
     //    @RequestMapping(value = "/create/{name}/{width}/{height}")
-    @RequestMapping(value = "/create/{name}/{type}/{width}/{height}")
-    public ISpieleBrett  create(@PathVariable("name") final String p_name, @PathVariable("type") final String p_type, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
+    @RequestMapping(value = "/create/{type}/{width}/{height}")
+    public ISpieleBrett  create(@PathVariable("type") final String p_type, @PathVariable("width") final int p_width, @PathVariable("height") final int p_height) {
+        String uuid = UUID.randomUUID().toString();
         switch (p_type) {
             case "PvP":
-                ESpiele.INSTANCE.generate(p_name, p_width, p_height, 0);
+                ESpiele.INSTANCE.generate(uuid, p_width, p_height, 0);
                 //gameName(name_counter, name);
                 System.out.println("PvP wurde ausgewählt.");
                 break;
 
             case "einfach":
-                ESpiele.INSTANCE.generate(p_name, p_width, p_height, 1);
+                ESpiele.INSTANCE.generate(uuid, p_width, p_height, 1);
                 //gameName(name_counter, name);
                 //final EItem p_value = EItem.KREIS;
                 System.out.println("Einfach wurde ausgewählt.");
                 break;
 
             case "mittel":
-                ESpiele.INSTANCE.generate(p_name, p_width, p_height, 2);
+                ESpiele.INSTANCE.generate(uuid, p_width, p_height, 2);
                 //gameName(name_counter, name);
                 System.out.println("Mittel wurde ausgewählt.");
                 break;
 
             case "schwer":
-                ESpiele.INSTANCE.generate(p_name, p_width, p_height, 3);
+                ESpiele.INSTANCE.generate(uuid, p_width, p_height, 3);
                 //gameName(name_counter, name);
                 System.out.println("Schwer wurde ausgewählt.");
                 break;
             case "unmöglich":
-                ESpiele.INSTANCE.generate(p_name, p_width, p_height, 4);
+                ESpiele.INSTANCE.generate(uuid, p_width, p_height, 4);
                 //gameName(name_counter, name);
                 System.out.println("Schwer wurde ausgewählt.");
                 break;
             default:
                 System.out.println("Es wurde kein gültiger Bot ausgewählt... Fehler bei der Zuweisung!");
         }
-        return ESpiele.INSTANCE.apply(p_name);
+        return ESpiele.INSTANCE.apply(uuid);
     }
 
     /**
