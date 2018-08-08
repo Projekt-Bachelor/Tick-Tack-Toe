@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Bachelor-Projekt 2018 - Tick-Tack-Toe: IBasePlayer.java Quellcode</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../layout.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Bachelor-Projekt 2018 - Tick-Tack-Toe
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4/d9b/IBasePlayer_8java_source.htm','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">IBasePlayer.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d9b/IBasePlayer_8java.htm">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> <a class="code" href="../../d9/d1e/namespacede.htm">de</a>.<a class="code" href="../../d7/dcf/namespacede_1_1tu__clausthal.htm">tu_clausthal</a>.<a class="code" href="../../de/dbd/namespacede_1_1tu__clausthal_1_1in.htm">in</a>.<a class="code" href="../../dd/df9/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018.htm">bachelorproject2018</a>.<a class="code" href="../../d0/d59/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe.htm">ticktacktoe</a>.<a class="code" href="../../d2/dd7/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model.htm">model</a>.<a class="code" href="../../da/d37/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item.htm">item</a>.<a class="code" href="../../dc/de8/enumde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item_1_1EItem.htm">EItem</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> java.util.Objects;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm">   11</a></span>&#160;<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm">IBasePlayer</a> <span class="keyword">implements</span> <a class="code" href="../../dc/d5f/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IPlayer.htm">IPlayer</a></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7877e9816265d2f49c7e17d90f8ce032">   16</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">final</span> String <a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7877e9816265d2f49c7e17d90f8ce032">m_name</a>;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a0e8ed9f6f9ef162733590ad4bd7a7004">   20</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">final</span> <a class="code" href="../../dc/de8/enumde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item_1_1EItem.htm">EItem</a> <a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a0e8ed9f6f9ef162733590ad4bd7a7004">m_value</a>;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#aff11645c97bacff934dd13e1c723ba09">   27</a></span>&#160;    <span class="keyword">protected</span> <a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#aff11645c97bacff934dd13e1c723ba09">IBasePlayer</a>( <span class="keyword">final</span> String p_name, <span class="keyword">final</span> <a class="code" href="../../dc/de8/enumde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item_1_1EItem.htm">EItem</a> p_value )</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        m_name = p_name;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        m_value = p_value;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    @Override</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7e56d1f686c59a1cc5129cbce9c3d278">   34</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> String <a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7e56d1f686c59a1cc5129cbce9c3d278">name</a>()</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7877e9816265d2f49c7e17d90f8ce032">m_name</a>;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    @Override</div><div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a5bdb3d46e42f714b0adadd2cfc35896a">   41</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a5bdb3d46e42f714b0adadd2cfc35896a">hashCode</a>()</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> this.<a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7e56d1f686c59a1cc5129cbce9c3d278">name</a>().hashCode();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    @Override</div><div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#ac7ddc26df330048e87b8a53fdf088e06">   47</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#ac7ddc26df330048e87b8a53fdf088e06">equals</a>( <span class="keyword">final</span> Object p_object )</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> Objects.nonNull( p_object ) &amp;&amp; p_object instanceof <a class="code" href="../../dc/d5f/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IPlayer.htm">IPlayer</a> &amp;&amp; p_object.hashCode() == this.<a class="code" href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a5bdb3d46e42f714b0adadd2cfc35896a">hashCode</a>();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div><div class="ttc" id="interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IPlayer_htm"><div class="ttname"><a href="../../dc/d5f/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IPlayer.htm">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IPlayer</a></div><div class="ttdoc">Interface für einen Spieler (Bot oder Mensch). </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d45/IPlayer_8java_source.htm#l00012">IPlayer.java:12</a></div></div>
+<div class="ttc" id="namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_htm"><div class="ttname"><a href="../../d0/d59/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe.htm">de.tu_clausthal.in.bachelorproject2018.ticktacktoe</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d6b/CApplication_8java_source.htm#l00001">CApplication.java:1</a></div></div>
+<div class="ttc" id="enumde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item_1_1EItem_htm"><div class="ttname"><a href="../../dc/de8/enumde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item_1_1EItem.htm">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item.EItem</a></div><div class="ttdoc">Factory für ein Item (Kreuz / Kreis Objekt). </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d9e/EItem_8java_source.htm#l00012">EItem.java:12</a></div></div>
+<div class="ttc" id="namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item_htm"><div class="ttname"><a href="../../da/d37/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1item.htm">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.item</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc7/CItem_8java_source.htm#l00001">CItem.java:1</a></div></div>
+<div class="ttc" id="classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer_htm_a7877e9816265d2f49c7e17d90f8ce032"><div class="ttname"><a href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7877e9816265d2f49c7e17d90f8ce032">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer.m_name</a></div><div class="ttdeci">final String m_name</div><div class="ttdoc">Name des Spielers. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9b/IBasePlayer_8java_source.htm#l00016">IBasePlayer.java:16</a></div></div>
+<div class="ttc" id="classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer_htm"><div class="ttname"><a href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer</a></div><div class="ttdoc">abstrakte Klasse eines Spielers, der den Namen und das Item, das er setzen kann enthält ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9b/IBasePlayer_8java_source.htm#l00011">IBasePlayer.java:11</a></div></div>
+<div class="ttc" id="classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer_htm_ac7ddc26df330048e87b8a53fdf088e06"><div class="ttname"><a href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#ac7ddc26df330048e87b8a53fdf088e06">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer.equals</a></div><div class="ttdeci">boolean equals(final Object p_object)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9b/IBasePlayer_8java_source.htm#l00047">IBasePlayer.java:47</a></div></div>
+<div class="ttc" id="classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer_htm_a5bdb3d46e42f714b0adadd2cfc35896a"><div class="ttname"><a href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a5bdb3d46e42f714b0adadd2cfc35896a">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer.hashCode</a></div><div class="ttdeci">int hashCode()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9b/IBasePlayer_8java_source.htm#l00041">IBasePlayer.java:41</a></div></div>
+<div class="ttc" id="namespacede_1_1tu__clausthal_htm"><div class="ttname"><a href="../../d7/dcf/namespacede_1_1tu__clausthal.htm">de.tu_clausthal</a></div></div>
+<div class="ttc" id="namespacede_htm"><div class="ttname"><a href="../../d9/d1e/namespacede.htm">de</a></div></div>
+<div class="ttc" id="classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer_htm_a7e56d1f686c59a1cc5129cbce9c3d278"><div class="ttname"><a href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a7e56d1f686c59a1cc5129cbce9c3d278">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer.name</a></div><div class="ttdeci">final String name()</div><div class="ttdoc">liefert den Namen des Spielers </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9b/IBasePlayer_8java_source.htm#l00034">IBasePlayer.java:34</a></div></div>
+<div class="ttc" id="classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer_htm_a0e8ed9f6f9ef162733590ad4bd7a7004"><div class="ttname"><a href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#a0e8ed9f6f9ef162733590ad4bd7a7004">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer.m_value</a></div><div class="ttdeci">final EItem m_value</div><div class="ttdoc">Item was der Spieler setzt (Kreuz / Kreis) </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9b/IBasePlayer_8java_source.htm#l00020">IBasePlayer.java:20</a></div></div>
+<div class="ttc" id="classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer_htm_aff11645c97bacff934dd13e1c723ba09"><div class="ttname"><a href="../../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#aff11645c97bacff934dd13e1c723ba09">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.player.IBasePlayer.IBasePlayer</a></div><div class="ttdeci">IBasePlayer(final String p_name, final EItem p_value)</div><div class="ttdoc">Konstruktor, der nur in abgeleiteten Klassen verwendet werden kann. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9b/IBasePlayer_8java_source.htm#l00027">IBasePlayer.java:27</a></div></div>
+<div class="ttc" id="namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_htm"><div class="ttname"><a href="../../dd/df9/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018.htm">de.tu_clausthal.in.bachelorproject2018</a></div></div>
+<div class="ttc" id="namespacede_1_1tu__clausthal_1_1in_htm"><div class="ttname"><a href="../../de/dbd/namespacede_1_1tu__clausthal_1_1in.htm">de.tu_clausthal.in</a></div></div>
+<div class="ttc" id="namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_htm"><div class="ttname"><a href="../../d2/dd7/namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model.htm">de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.htm">src</a></li><li class="navelem"><a class="el" href="../../dir_5eb159725f84c66aafd839904a4acdd0.htm">main</a></li><li class="navelem"><a class="el" href="../../dir_fd3f6763802dee1ad875f6c80eac0bda.htm">java</a></li><li class="navelem"><a class="el" href="../../dir_d0b2643dbe59e2c16d00acf3fde99ae0.htm">de</a></li><li class="navelem"><a class="el" href="../../dir_b5735dbb26bbd0edfaeb5dc944d0a236.htm">tu_clausthal</a></li><li class="navelem"><a class="el" href="../../dir_d5020d8050913c88fd7e370a66f1f0da.htm">in</a></li><li class="navelem"><a class="el" href="../../dir_be85876bde3bd070af67989bb4a75e11.htm">bachelorproject2018</a></li><li class="navelem"><a class="el" href="../../dir_555425da5aa8fd813685e64f4f4391d2.htm">ticktacktoe</a></li><li class="navelem"><a class="el" href="../../dir_7df9798142b1d1b27b454fbd50f49bd4.htm">model</a></li><li class="navelem"><a class="el" href="../../dir_aa76a5db44d0c5ff3f9ddb9682e1d90e.htm">player</a></li><li class="navelem"><a class="el" href="../../d4/d9b/IBasePlayer_8java.htm">IBasePlayer.java</a></li>
+    <li class="footer">Erzeugt von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+var namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player =
+[
+    [ "CHardBot", "d5/d40/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CHardBot.htm", "d5/d40/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CHardBot" ],
+    [ "CHuman", "d3/d72/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CHuman.htm", "d3/d72/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CHuman" ],
+    [ "CMediumBot", "de/d85/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CMediumBot.htm", "de/d85/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CMediumBot" ],
+    [ "CMinMaxBot", "d2/d76/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CMinMaxBot.htm", "d2/d76/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CMinMaxBot" ],
+    [ "CRandomBot", "d0/d60/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CRandomBot.htm", "d0/d60/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1CRandomBot" ],
+    [ "IBasePlayer", "df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm", "df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer" ],
+    [ "IPlayer", "dc/d5f/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IPlayer.htm", "dc/d5f/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IPlayer" ]
+];

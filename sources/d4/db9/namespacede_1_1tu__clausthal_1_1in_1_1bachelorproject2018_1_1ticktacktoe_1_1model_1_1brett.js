@@ -1,0 +1,5 @@
+var namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett =
+[
+    [ "CSpielbrett", "d7/d12/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1CSpielbrett.htm", "d7/d12/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1CSpielbrett" ],
+    [ "ISpieleBrett", "d5/d48/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1ISpieleBrett.htm", "d5/d48/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1ISpieleBrett" ]
+];

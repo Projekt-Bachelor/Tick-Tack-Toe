@@ -1,0 +1,5 @@
+var namespacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1controller =
+[
+    [ "CSpielebrettController", "d8/d52/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1controller_1_1CSpielebrettController.htm", "d8/d52/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1controller_1_1CSpielebrettController" ],
+    [ "CSpieleController", "da/dee/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1controller_1_1CSpieleController.htm", "da/dee/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1controller_1_1CSpieleController" ]
+];

@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['ibaseplayer',['IBasePlayer',['../df/dec/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1player_1_1IBasePlayer.htm#aff11645c97bacff934dd13e1c723ba09',1,'de::tu_clausthal::in::bachelorproject2018::ticktacktoe::model::player::IBasePlayer']]],
+  ['isempty',['isempty',['../d7/d12/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1CSpielbrett.htm#ac1add59377849177dd1c9487d8655dc1',1,'de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.CSpielbrett.isempty()'],['../d5/d48/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1ISpieleBrett.htm#ae0fd0a8636206bd430278efd9e5a1539',1,'de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.ISpieleBrett.isempty()']]],
+  ['ism_5fdraw',['isM_draw',['../d7/d12/classde_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1CSpielbrett.htm#a429c23b1d154948cb675a2185743078a',1,'de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.CSpielbrett.isM_draw()'],['../d5/d48/interfacede_1_1tu__clausthal_1_1in_1_1bachelorproject2018_1_1ticktacktoe_1_1model_1_1brett_1_1ISpieleBrett.htm#a2cfc0dbbdaefcac30532d6a6648315b8',1,'de.tu_clausthal.in.bachelorproject2018.ticktacktoe.model.brett.ISpieleBrett.isM_draw()']]]
+];
