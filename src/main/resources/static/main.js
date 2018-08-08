@@ -5,6 +5,7 @@ const notifier = new AWN();
 const name = "Spiel-0"
 var width = 3;
 var height = 3;
+var sessiontable;
 function requestJSON(url, callback) {
     //console.log(url)
     fetch(url)
@@ -17,10 +18,12 @@ function requestJSON(url, callback) {
 
 function updateGame(data) {
     //console.log(data)
+    //Speichern von Data Obeject
+    sessiontable=data;
+    console.log(sessiontable)
     for (let row_index = 0; row_index < data.height; row_index++) {
         for (let col_index = 0; col_index < data.width; col_index++) {
             const cell = document.getElementById('cell-row-' + row_index + '-col-' + col_index);
-            console.log(data)
             if (data.elements[row_index][col_index] !== null) {
                 switch (data.elements[row_index][col_index].m_item) {
                     case "KREUZ":
@@ -40,6 +43,7 @@ function updateGame(data) {
             else
                 cell.innerHTML = '<img src="empty.svg">';
         }
+
     }
     if (data.winner == "KREIS") {
         //notifier.success('Leider hast du verloren. Versuch es doch einfach nochmal!')
@@ -56,9 +60,9 @@ function updateGame(data) {
     if (data.draw==true || data.winner == "KREUZ" || data.winner == "KREIS"){
         deactivateGameTable();
     }
-
+    sessionStorage.setItem('sessiontable', JSON.stringify(sessiontable));
+    //console.log(sessionStorage.getItem('sessiontable'))
 }
-
 
 function checkForUpdate(data) {
     requestJSON("/spiele/list", function (data) {
@@ -98,6 +102,7 @@ function deactivateGameTable(){
     const cells = document.getElementsByClassName('game-table-field')
     for (let i = 0; i < cells.length; i++) {
         cells[i].outerHTML = cells[i].outerHTML
+        //sessionStorage.removeItem('tablesave');
     }
 }
 
@@ -128,7 +133,7 @@ document.getElementById('einfach').addEventListener('click', () => requestJSON("
 document.getElementById('mittel').addEventListener('click', () => notifier.success('Ein mittleres Spiel gegen einen Bot wird gestartet.'));
 document.getElementById('mittel').addEventListener('click', () => requestJSON("/spielebrett/create/" + name + "/mittel/" + width + "/" + height, startGame));
 
-/**Spiel gegen den Bot soll gestartet werden*/
+/**Spiel gegren den Bot soll gestartet werden*/
 document.getElementById('schwer').addEventListener('click', () => notifier.success('Ein schweres Spiel gegen einen Bot wird gestartet.'));
 document.getElementById('schwer').addEventListener('click', () => requestJSON("/spielebrett/create/" + name + "/schwer/" + width + "/" + height, startGame));
 
@@ -139,7 +144,13 @@ document.getElementById('unmöglich').addEventListener('click', () => requestJSO
 requestJSON("/spiele/list", function (data) {
     if (data.includes(name)) {
         console.log('game ' + name + ' already exists');
-        requestJSON('/spielebrett/' + name + '/show', startGame)
+        var sessiontable2 = JSON.parse(sessionStorage.getItem('sessiontable'));
+        tableCreate(width, height)
+        updateGame(sessiontable2);
+        //requestJSON('/spielebrett/' + name + '/show', startGame)
+
+
+
     } else {
         notifier.info('Es existert noch kein Spiel. Bitte wählen sie einen Schwierigkeitsgrad aus der Navigation aus.')
     }
